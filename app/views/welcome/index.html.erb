@@ -1,0 +1,9 @@
+<h1>Welcome Home Jack</h1>
+
+<% if current_user %>
+<h3>You've been signed in</h3>
+<%= link_to "Create Event", new_event_path %>
+<% else %>
+	<%= link_to "Create Account", new_user_registration_path %><br>
+	<%= link_to "Sign In", new_user_session_path %>
+<% end %>

@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  # devise_for :users, :controllers => { registration: "after_sign_up_path_for"}
-  get 'user/:id' => 'user#show', as: 'user_show'
+  devise_for :users, controllers: { registrations: "registrations" }
+  resources :users, only: :show
+  resources :events
+
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
