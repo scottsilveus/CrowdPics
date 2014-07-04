@@ -8,6 +8,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
 require "Date"
+require "securerandom"
 # require "rails/test_unit/railtie"
 # path.app.views << "app/views/devise"
 # Require the gems listed in Gemfile, including any gems

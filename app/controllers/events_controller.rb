@@ -9,9 +9,11 @@ class EventsController < ApplicationController
 	end
 
 	def create
+		event_uniq_url = SecureRandom.urlsafe_base64 
 		params[:event][:start_date] = Date.strptime(params[:event][:start_date], "%m/%d/%Y")
 		params[:event][:end_date] = Date.strptime(params[:event][:end_date], "%m/%d/%Y")
 		@event = Event.create(event_params)
+		@event[:event_code] = event_uniq_url
 		current_user.events << @event
 		if @event
 			redirect_to user_path(current_user)
@@ -33,6 +35,7 @@ class EventsController < ApplicationController
 		Event.find_by_id(params[:id]).destroy
 		render user_path(current_user)
 	end
+
 
 private
 

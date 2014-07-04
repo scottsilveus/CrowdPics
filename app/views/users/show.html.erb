@@ -1,11 +1,21 @@
 <h1>Show page</h1>
-
+<h3>Upcoming Events</h3>
 <ol>
 <% current_user.events.order(:start_date).each do |event| %>
-	<li><%= link_to "#{event.title}", event_path(event.id) %> Date: <%= event.start_date.strftime("%m/%d/%y") %><%= link_to "Edit Event", edit_user_event_path(current_user.id,event.id) %></li>
+	<% if event.start_date > DateTime.now %>
+		<li><%= link_to "#{event.title}", event_path(event.id) %> Date: <%= event.start_date.strftime("%m/%d/%y") %><%= link_to "Edit Event", edit_user_event_path(current_user.id,event.id) %></li>
+		<% end %>
+<% end %>
+</ol>
+<h3>Previous Events</h3>
+<ol>
+<% current_user.events.order(:start_date).each do |event| %>
+	<% if event.start_date < DateTime.now %>
+		<li><%= link_to "#{event.title}", event_path(event.id) %> Date: <%= event.start_date.strftime("%m/%d/%y") %><%= link_to "Edit Event", edit_user_event_path(current_user.id,event.id) %></li>
+		<% end %>
 <% end %>
 </ol>
 <%= link_to "All Events", events_path%>
 <%= link_to "Create Event", new_user_event_path(current_user) %>
 <%= link_to "LogOut", destroy_user_session_path, method: :delete %>
-<%= link_to "Delete", user_path, method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Delete", user_path, method: :delete, data: {confirm: "Click ok to fuck up your computer or cancel to keep it useable"} %>
