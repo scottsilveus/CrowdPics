@@ -6,3 +6,5 @@
 <% end %>
 </ol>
 <%= link_to "Create Event", new_event_path %>
+<%= link_to "LogOut", destroy_user_session_path, method: :delete %>
+<%= link_to "Delete", edit_user_registration_path, method: :delete, confirm: "Are you sure?" %>
