@@ -33,7 +33,7 @@ class EventsController < ApplicationController
 
 	def destroy
 		Event.find_by_id(params[:id]).destroy
-		render user_path(current_user)
+		redirect_to user_path(current_user.id)
 	end
 
 
