@@ -81,5 +81,4 @@ test:
 production:
   <<: *default
   database: CrowdPics2_production
-  username: CrowdPics2
   password: <%= ENV['CROWDPICS2_DATABASE_PASSWORD'] %>
