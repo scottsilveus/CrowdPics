@@ -1,8 +1,10 @@
-<h1>Welcome Home Jack</h1>
+<h1>Welcome index</h1>
 
 <% if current_user %>
 <h3>You've been signed in</h3>
-<%= link_to "Create Event", new_event_path %>
+<%= link_to "Create Event", new_user_event_path(current_user) %>
+<%= link_to "All Events", events_path%>
+<%= link_to "My Dashboard", user_path(current_user) %>
 <% else %>
 	<%= link_to "Create Account", new_user_registration_path %><br>
 	<%= link_to "Sign In", new_user_session_path %>

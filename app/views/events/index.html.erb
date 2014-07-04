@@ -1,0 +1,10 @@
+<h1>The Happenings</h1>
+<h6>Hang out with your Fly pals, but don't get sent to the can.</h6>
+
+<ol>
+	<% @events.each do |event| %>
+		<li>
+			<%= link_to "#{event.title}", event_path(event.id) %> Date: <%= event.start_date.strftime("%m/%d/%y") %>
+		</li>
+	<% end %>
+</ol>

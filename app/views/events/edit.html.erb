@@ -1,0 +1,6 @@
+<h1>Edit Event</h1>
+
+<%= render "shared/event_form" %>
+
+<%= link_to "Back", user_path(current_user) %>
+<%= link_to "Delete", user_event_path, method: :delete, data: {confirm: "Are you sure?  People will miss these pictures."}  %>

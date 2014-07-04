@@ -1,5 +1,9 @@
 class EventsController < ApplicationController
 
+	def index
+		@events = Event.all.order(:start_date)
+	end
+
 	def new
 		@event = Event.new
 	end
@@ -15,7 +19,17 @@ class EventsController < ApplicationController
 	end
 
 	def show
+		@params = params
 		@event = Event.find_by_id(params[:id])
+	end
+
+	def edit
+		@event = Event.find_by_id(params[:id])
+	end
+
+	def destroy
+		Event.find_by_id(params[:id]).destroy
+		render user_path(current_user)
 	end
 
 private

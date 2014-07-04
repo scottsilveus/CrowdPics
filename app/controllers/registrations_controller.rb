@@ -10,5 +10,8 @@ class RegistrationsController < Devise::RegistrationsController
 		user_path(@user.id)
 	end
 
+	def destroy
+		super
+	end
 
 end
