@@ -1,7 +1,7 @@
 <h1>Show page</h1>
 
 <ol>
-<% current_user.events.order(:end_date).each do |event| %>
+<% current_user.events.order(:start_date).each do |event| %>
 	<li><%= link_to "#{event.title}", event_path(event) %> Date: <%= event.start_date.strftime("%m/%d/%y") %></li>
 <% end %>
 </ol>

@@ -5,7 +5,8 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		logger.info params[:event][:start_date]
+		params[:event][:start_date] = Date.strptime(params[:event][:start_date], "%m/%d/%Y")
+		params[:event][:end_date] = Date.strptime(params[:event][:end_date], "%m/%d/%Y")
 		@event = Event.create(event_params)
 		current_user.events << @event
 		if @event
