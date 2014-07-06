@@ -42,6 +42,8 @@ gem 'jquery-ui-rails'
 
 
 gem 'devise'
+gem 'aws-sdk'
+gem 'paperclip'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
