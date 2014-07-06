@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-	before_action :authenticate_user!	
+	before_action :authenticate_user!
 
 	def index
 		@events = Event.all.order(:start_date)
@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		event_uniq_url = SecureRandom.urlsafe_base64 
+		event_uniq_url = SecureRandom.urlsafe_base64
 		params[:event][:start_date] = Date.strptime(params[:event][:start_date], "%m/%d/%Y")
 		params[:event][:end_date] = Date.strptime(params[:event][:end_date], "%m/%d/%Y")
 		@event = Event.create(event_params)
@@ -24,6 +24,7 @@ class EventsController < ApplicationController
 	def show
 			@params = params
 			@event = Event.find_by_id(params[:id])
+			@event_photos = @event.event_photos
 	end
 
 	def edit

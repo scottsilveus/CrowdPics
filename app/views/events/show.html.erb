@@ -2,5 +2,11 @@
 <div class="content">
 	<p><%= @event.description %></p>
 </div>
+<div id="eventImages">
+  <% @event_photos.each do |p| %>
+    <div><img src="<%= p.avatar %>"></div>
+  <% end %>
+</div>
+<h2>Add a new event photo <%= link_to 'New Event Photo', new_event_event_photo_path(@event), class: 'new-eventphoto' %></h2>
 
 
