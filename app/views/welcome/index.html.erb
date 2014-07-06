@@ -8,4 +8,14 @@
 <% else %>
 	<%= link_to "Create Account", new_user_registration_path %><br>
 	<%= link_to "Sign In", new_user_session_path %>
+
+  <%= form_tag events_check_code_path do %>
+  <p>
+    <%= label_tag "Event Code"%>
+    <%= text_field_tag "event_code" %>
+  </p>
+  <p>
+    <%= submit_tag "GoButton" %>
+  </p>
+  <% end %>
 <% end %>

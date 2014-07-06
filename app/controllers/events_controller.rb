@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-	before_action :authenticate_user!	
+	before_action :authenticate_user!, except: [:show, :check_code]
 
 	def index
 		@events = Event.all.order(:start_date)
@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		event_uniq_url = SecureRandom.urlsafe_base64 
+		event_uniq_url = SecureRandom.urlsafe_base64(7)
 		params[:event][:start_date] = Date.strptime(params[:event][:start_date], "%m/%d/%Y")
 		params[:event][:end_date] = Date.strptime(params[:event][:end_date], "%m/%d/%Y")
 		@event = Event.create(event_params)
@@ -22,8 +22,13 @@ class EventsController < ApplicationController
 	end
 
 	def show
-			@params = params
 			@event = Event.find_by_id(params[:id])
+			@event_photos = @event.event_photos
+			if current_user
+				@check = true if current_user.id == @event.user_id
+			else
+				@check = false
+			end
 	end
 
 	def edit
@@ -33,10 +38,21 @@ class EventsController < ApplicationController
 	end
 
 	def destroy
-		Event.find_by_id(params[:id]).destroy
+		event = Event.find_by_id(params[:id])
+		event.destroy
 		redirect_to user_path(current_user.id)
 	end
 
+  def check_code
+    code = params[:event_code]
+    event = Event.find_by_event_code(code)
+    if event == nil
+    	redirect_to '/'
+    else
+    	session[:event_code] = code
+      redirect_to event_path(event)
+    end
+  end
 
 private
 

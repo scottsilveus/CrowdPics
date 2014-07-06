@@ -2,11 +2,14 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   devise_for :users, controllers: { registrations: "registrations" }
-  resources :users, only: [:show,:destroy] do 
+  resources :users, only: [:show,:destroy] do
     resources :events, except: [:show, :index]
   end
-  resources :events, only: [:show, :index]
-  resources :event_photos
+  resources :events, only: [:show, :index] do
+    resources :event_photos
+  end
+
+  post 'events/check_code' => 'events#check_code'
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 

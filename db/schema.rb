@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20140706001312) do
 
   create_table "event_photos", force: true do |t|
     t.string   "name"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name"

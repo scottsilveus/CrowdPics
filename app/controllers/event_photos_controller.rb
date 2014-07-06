@@ -1,19 +1,10 @@
 class EventPhotosController < ApplicationController
-  # GET /friends
-  # GET /friends.json
-  def index
-    @eventphotos = EventPhoto.all
-  end
 
-  # GET /friends/1
-  # GET /friends/1.json
-  def show
-    @eventphoto = EventPhoto.find_by_id(params[:id])
-  end
 
   # GET /friends/new
   def new
-    @eventphoto = EventPhoto.new
+    @event = Event.find_by_id(params[:event_id])
+    @eventphoto = EventPhoto.new(event_id: @event.id)
   end
 
   # GET /friends/1/edit
@@ -24,10 +15,11 @@ class EventPhotosController < ApplicationController
   # POST /friends.json
   def create
     @eventphoto = EventPhoto.new(eventphoto_params)
-
+    event = Event.find_by_id(params[:event_id])
     respond_to do |format|
       if @eventphoto.save
-        format.html { redirect_to @eventphoto, notice: 'Event Photo was successfully created.' }
+        event.event_photos << @eventphoto
+        format.html { redirect_to event_path(event), notice: 'Event Photo was successfully created.' }
         format.json { render action: 'show', status: :created, location: @eventphoto }
       else
         format.html { render action: 'new' }
@@ -35,6 +27,7 @@ class EventPhotosController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /friends/1
   # PATCH/PUT /friends/1.json
@@ -53,9 +46,11 @@ class EventPhotosController < ApplicationController
   # DELETE /friends/1
   # DELETE /friends/1.json
   def destroy
+    @event = Event.find_by_id(params[:event_id])
+    @eventphoto = EventPhoto.find_by_id(params[:id])
     @eventphoto.destroy
     respond_to do |format|
-      format.html { redirect_to event_photos_path }
+      format.html { redirect_to edit_user_event_path(current_user, @event) }
       format.json { head :no_content }
     end
   end
@@ -68,6 +63,7 @@ class EventPhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def eventphoto_params
+      logger.info params
       params.require(:event_photo).permit(:avatar, :name)
     end
 end
