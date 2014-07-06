@@ -1,0 +1,26 @@
+<%= form_for(@eventphoto, multipart: true) do |f| %>
+  <% if @eventphoto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@eventphoto.errors.count, "error") %> prohibited this event photo from being saved:</h2>
+
+      <ul>
+      <% @eventphoto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Add the Event Photo' %>
+    <%= link_to 'Nevermind', eventphotos_path, class: 'button' %>
+  </div>
+<% end %>
