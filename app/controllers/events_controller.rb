@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+	before_action :authenticate_user!	
 
 	def index
 		@events = Event.all.order(:start_date)
@@ -21,8 +22,8 @@ class EventsController < ApplicationController
 	end
 
 	def show
-		@params = params
-		@event = Event.find_by_id(params[:id])
+			@params = params
+			@event = Event.find_by_id(params[:id])
 	end
 
 	def edit
