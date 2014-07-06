@@ -1,0 +1,16 @@
+<div class="friend" id="<%= event_photo.id %>">
+  <div class="front">
+    <%= link_to event_photo, class: 'pic-link' do %>
+      <%= image_tag event_photo.avatar.url(:square) %>
+    <% end %>
+  </div>
+
+  <div class="back">
+    <span class="friend-name"><%= event_photo.name %></span>
+    <div class="actions">
+      <%= link_to 'Show', event_photo %>
+      <%= link_to 'Edit', edit_event_photo_path(event_photo) %>
+      <%= link_to 'Delete', event_photo, confirm: 'Are you sure you want to delete this event photo?', method: :delete, class: 'destroy' %>
+    </div>
+  </div>
+</div>
