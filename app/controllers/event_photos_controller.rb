@@ -8,6 +8,7 @@ class EventPhotosController < ApplicationController
   # GET /friends/1
   # GET /friends/1.json
   def show
+    @eventphoto = EventPhoto.find_by_id(params[:id])
   end
 
   # GET /friends/new
@@ -54,7 +55,7 @@ class EventPhotosController < ApplicationController
   def destroy
     @eventphoto.destroy
     respond_to do |format|
-      format.html { redirect_to eventphotos_url }
+      format.html { redirect_to event_photos_path }
       format.json { head :no_content }
     end
   end
@@ -67,6 +68,6 @@ class EventPhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def eventphoto_params
-      params.require(:eventphoto).permit(:avatar, :name)
+      params.require(:event_photo).permit(:avatar, :name)
     end
 end
