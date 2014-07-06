@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   end
   resources :events, only: [:show, :index]
   resources :event_photos
-
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
