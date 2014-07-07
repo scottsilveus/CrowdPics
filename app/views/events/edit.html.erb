@@ -1,6 +1,6 @@
 <% if current_user.id == @event.user_id %>
 	<h1>Edit Event</h1>
-  <div>Here is the event viewing code: <%= event.event_code %></div>
+  <div>Here is the event viewing code: <%= @event.event_code %></div>
 	<%= render "shared/event_form" %>
 	<%= link_to "Back", user_path(current_user) %>
 	<%= link_to "Delete", user_event_path, method: :delete, data: {confirm: "Are you sure?  People will miss these pictures."}  %>
