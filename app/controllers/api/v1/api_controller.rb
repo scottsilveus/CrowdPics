@@ -2,7 +2,7 @@ class API::V1::APIController < ApplicationController
   protect_from_forgery except: :create
 
   def create
-    event = Event.find_by_event_code(event_code_params[:event_code])
+    event = Event.find_by(event_code_params)
     @eventphoto = EventPhoto.new(eventphoto_params)
     logger.error(params.inspect)
 
@@ -17,8 +17,8 @@ class API::V1::APIController < ApplicationController
   end
 
    def check
-      if Event.find_by_event_code(event_code_params[:event_code]) != nil
-          render  nothing: true, content_type: :json, status: 204
+      if Event.find_by(event_code: params[:event_code])
+          render  nothing: true, status: 204
       else
           render nothing: true, status: 422
       end

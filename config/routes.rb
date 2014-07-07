@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   namespace :api, path: '/',  constraint: { subdomain: 'api' } do
     namespace :v1 do
       resources :api, only: :create
-      post '/api/check' => 'api#check'
+      get '/api/events/:event_code' => 'api#check'
     end
   end
   # Example of regular route:
