@@ -8,11 +8,20 @@ class API::V1::APIController < ApplicationController
 
       if @eventphoto.save
         event.event_photos << @eventphoto
+        #add code to add phonenumber to event
         render  nothing: true, content_type: :json, status: 204
       else
         render  nothing: true, status: 422
       end
 
+  end
+
+   def check
+      if Event.find_by_event_code(event_code_params[:event_code]) != nil
+          render  nothing: true, content_type: :json, status: 204
+      else
+          render nothing: true, status: 422
+      end
   end
 
   private
