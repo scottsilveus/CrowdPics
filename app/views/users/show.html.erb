@@ -3,7 +3,7 @@
 <ol>
 <% current_user.events.order(:start_date).each do |event| %>
 	<% if event.start_date > DateTime.now %>
-		<li><%= link_to "#{event.title}", event_path(event.id) %> Date: <%= event.start_date.strftime("%m/%d/%y") %><%= link_to "Edit Event", edit_user_event_path(current_user.id,event.id) %><div>Here is the event viewing code: <%= event.event_code %></div></li>
+		<li><%= link_to "#{event.title}", event_path(event.id) %> Date: <%= event.start_date.strftime("%m/%d/%y") %><%= link_to "Edit Event", edit_user_event_path(current_user.id,event.id) %></li><div>Here is the event viewing code: <%= event.event_code %></div>
 		<% end %>
 <% end %>
 </ol>
