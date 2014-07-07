@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   # API ROUTING INFORMATION
-  namespace :api, path: '/', constraint: { subdomain: 'api' } do
+  namespace :api, path: '/',  constraint: { subdomain: 'api' } do
     namespace :v1 do
       resources :api
     end
