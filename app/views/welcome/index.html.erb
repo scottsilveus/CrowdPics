@@ -1,53 +1,192 @@
-<h1>Welcome index</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <!--meta tags-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<% if current_user %>
-<h3>You've been signed in</h3>
-<%= link_to "Create Event", new_user_event_path(current_user) %>
-<%= link_to "All Events", events_path%>
-<%= link_to "My Dashboard", user_path(current_user) %>
-<% else %>
+    <title>CrowdPics</title>
+    <!--    Looking at my code?       -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- Fonts -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body class='landing_body' class='grayscale' id="page-top" data-spy="scroll" data-target=".navbar-custom">
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">
+                    CROWDPICS
+                </a>
+            </div>
+     <!-- Fixed navbar -->
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">CrowdPics</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav right_nav">
+            <li class="hidden"><a href="#page-top"></a> </li>
+            <li class="page-scroll" class="active"><a href="#about">About</a></li>
+            <li class="page-scroll"><li><a href="#team">Team</a></li>
+            <li class="page-scroll"><li><a href="#learn_more">Learn More</a></li>
+            <li class="page-scroll"><li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+ </nav>
+    <section class="intro">
+       <div class="intro-body">
+         <div class="container text-center">
+          <div class="brand-heading text-center">
+          CROWDPICS
+          </div>
+          <p class="intro-text"> 
+          Crowdsource . Curate . Create
+          </p>
+          <div>
+          <% if current_user %>
+          <h3>You've been signed in</h3>
+           <%= link_to "Create Event", new_user_event_path(current_user) %>
+           <%= link_to "All Events", events_path%>
+           <%= link_to "My Dashboard", user_path(current_user) %>
+         <% else %>
+        <ul class='lp_link'>
+        <br>
+        <br>
+          <li><%= link_to "Create Account", new_user_registration_path, :class => "lp_btn", :id => "signup" %></li>
 
-	<%= link_to "Create Account", new_user_registration_path, :id => "signup"%><br>
+          <div id='signupdiv' style="display: none">
+            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+              <%= devise_error_messages! %>
 
-<div id='signupdiv' style="display: none">
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+              <div><%= f.label :email %><br />
+              <%= f.email_field :email %></div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+              <div><%= f.label :password %><br />
+              <%= f.password_field :password %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+              <div><%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+              <div><%= f.submit "Sign up" %></div>
+            <% end %></div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %></div>
+          <li><%= link_to "Sign In", new_user_session_path, :class => "lp_btn", :id => "signin" %></li>
 
+          <div id='signindiv' style="display: none">
+              <%= form_for(:user, :url => session_path(:user)) do |f| %>
+              <div><%= f.label :email %><br />
+                <%= f.text_field :email %><br></div>
+                <div><%= f.label :password %><br />
+                <%= f.password_field :password %><br></div>
+                 <div><%= f.submit "Sign in" %></div>
+              <% end %></div>
+                      
+                      </ul>
+        <% end %>
+        <%= form_tag events_check_code_path do %>
+              <p>
+                <%= label_tag "Event Code"%>
+                <%= text_field_tag "event_code" %>
+              </p>
+              <p>
+                <%= submit_tag "GoButton" %>
+              </p>
+              <% end %>
 
-	<%= link_to "Sign In", new_user_session_path, :id => "signin"%>
+          <div class="page-scroll">
+            <a href="#about" class="btn btn-circle">
+              <i class="fa fa-angle-double-down animated"></i>
+            </a>
+          </div>   
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div id='signindiv' style="display: none">
-<%= form_for(:user, :url => session_path(:user)) do |f| %>
-<div><%= f.label :email %><br />
-  <%= f.text_field :email %><br></div>
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %><br></div>
-   <div><%= f.submit "Sign in" %></div>
-<% end %></div>
+  <section id="about">
+    <div class="about-section">
+      <div class="container">
+         <h3>About<br></h3>           
+          <p>
+          Quisque fringilla ultricies nisl, ac facilisis tortor ultricies vitae. Duis eget gravida neque. Maecenas egestas viverra diam at cursus. In semper, risus a aliquam scelerisque, eros lorem porta nunc, commodo dignissim nibh est sit amet nulla. Fusce luctus eget enim vitae sagittis. Curabitur vitae egestas arcu. Duis ac erat ornare, dapibus quam non, elementum est. Pellentesque arcu lacus, blandit ac orci et, interdum dignissim ligula. In consequat nec ipsum interdum tempus. Integer in odio eget orci congue imperdiet. Aenean posuere nisl elit, id aliquam mauris consequat non. Pellentesque facilisis tellus id dui ullamcorper dignissim. Donec tellus lectus, aliquam rhoncus nibh molestie,convallis convallis urna.</p>
+          <p>Integer vitae risus eu tellus malesuada tempus. Integer interdum adipiscing posuere. Nam non lacus tristique, tempor arcu et, tristique diam. Proin consequat massa vitae nunc viverra, nec malesuada arcu pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent a mi nulla. Nam velit odio, feugiat in est et, tristique euismod velit. Maecenas ac pulvinar lacus. Vestibulum pharetra leo sed enim tempor suscipit. Quisque venenatis tempus eros, in gravida odio. Suspendisse suscipit, risus vel auctor convallis, velit tellus posuere nunc, a aliquam dui metus nec enim. Quisque faucibus eros eu bibendum ullamcorper. Vivamus arcu justo, tincidunt et accumsan auctor, faucibus et nisi. Phasellus sed enim et libero lacinia iaculis porttitor sit amet augue.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lacinia nisl non lectus commodo rhoncus. Donec dui diam, vehicula at eleifend quis, vehicula vel turpis. Cras pharetra justo nec mauris placerat posuere. Vestibulum sit amet sem justo. Nam non convallis diam. Quisque sit amet ante non lectus laoreet ultricies. Nulla a risus ornare, varius massa nec, interdum nisi. Vestibulum massa elit, rutrum a metus sed, tempus pellentesque risus.</p>
+    </div>
+  </div>
+</section>
 
+<section id="team">
+  <div class="team-section">
+    <div class="container">
+      <h3>The Team <br></h3>
+      <img class='team_photo' src="<%= asset_path('ahmed.jpg') %>">
+      <img class='team_photo' src="<%= asset_path('kennan.jpg') %>">
+      <img class='team_photo' src="<%= asset_path('scott.jpg') %>">
+      <img class='team_photo' src="<%= asset_path('steve.jpg') %>">
+        <p>Integer vitae risus eu tellus malesuada tempus. Integer interdum adipiscing posuere. Nam non lacus tristique, tempor arcu et, tristique diam. Proin consequat massa vitae nunc viverra, nec malesuada arcu pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent a mi nulla. Nam velit odio, feugiat in est et, tristique euismod velit. Maecenas ac pulvinar lacus. Vestibulum pharetra leo sed enim tempor suscipit. Quisque venenatis tempus eros, in gravida odio. Suspendisse suscipit, risus vel auctor convallis, velit tellus posuere nunc, a aliquam dui metus nec enim. Quisque faucibus eros eu bibendum ullamcorper. Vivamus arcu justo, tincidunt et accumsan auctor, faucibus et nisi. Phasellus sed enim et libero lacinia iaculis porttitor sit amet augue.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lacinia nisl non lectus commodo rhoncus. Donec dui diam, vehicula at eleifend quis, vehicula vel turpis. Cras pharetra justo nec mauris placerat posuere. Vestibulum sit amet sem justo. Nam non convallis diam. Quisque sit amet ante non lectus laoreet ultricies. Nulla a risus ornare, varius massa nec, interdum nisi. Vestibulum massa elit, rutrum a metus sed, tempus pellentesque risus.</p>
+    </div>
+  </div>
+</section>
+ 
+<section id="learn_more">
+  <div class="learn_more-section">
+    <div class="container">
+      <h3>Learn More</h3>
+        <p>Integer vitae risus eu tellus malesuada tempus. Integer interdum adipiscing posuere. Nam non lacus tristique, tempor arcu et, tristique diam. Proin consequat massa vitae nunc viverra, nec malesuada arcu pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent a mi nulla. Nam velit odio, feugiat in est et, tristique euismod velit. Maecenas ac pulvinar lacus. Vestibulum pharetra leo sed enim tempor suscipit. Quisque venenatis tempus eros, in gravida odio. Suspendisse suscipit, risus vel auctor convallis, velit tellus posuere nunc, a aliquam dui metus nec enim. Quisque faucibus eros eu bibendum ullamcorper. Vivamus arcu justo, tincidunt et accumsan auctor, faucibus et nisi. Phasellus sed enim et libero lacinia iaculis porttitor sit amet augue.</p>   
+        <br>
+        <% if current_user %>
 
-  <%= form_tag events_check_code_path do %>
-  <p>
-    <%= label_tag "Event Code"%>
-    <%= text_field_tag "event_code" %>
-  </p>
-  <p>
-    <%= submit_tag "GoButton" %>
-  </p>
-  <% end %>
-<% end %>
-
-
+        <h3>You've been signed in</h3>
+          <%= link_to "Create Event", new_user_event_path(current_user) %>
+          <%= link_to "All Events", events_path%>
+          <%= link_to "My Dashboard", user_path(current_user) %>
+        <% else %>
+        <ul class='lp_link2'>
+          <li><%= link_to "Create Account", new_user_registration_path, :class => "lp_btn2" %></li>
+          <li><%= link_to "Sign In", new_user_session_path, :class => "lp_btn2" %></li>
+        </ul>
+        <% end %>
+    </div>    
+  </div>
+ </section>
+<!--mmmmmm-->
+ <section id="contact">
+   <div class="contact-section">
+    <div class="container">
+      <h3>Contact Us</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lacinia nisl non lectus commodo rhoncus. Donec dui diam, vehicula at eleifend quis, vehicula vel turpis. Cras pharetra justo nec mauris placerat posuere. Vestibulum sit amet sem justo. Nam non convallis diam. Quisque sit amet ante non lectus laoreet ultricies. Nulla a risus ornare, varius massa nec, interdum nisi. Vestibulum massa elit, rutrum a metus sed, tempus pellentesque risus.</p>
+     </div>
+    </div> 
+</section>
+</div>
+</div>
+<!-- FOOTER -->
+    <section id='footer'>
+      &copy; 2014 CROWDPICS. All Rights Reserved.
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  </body>
+</html>
 
