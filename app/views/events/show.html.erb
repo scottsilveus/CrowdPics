@@ -1,4 +1,6 @@
 
+<%= javascript_include_tag "js/lightbox.min.js" %>
+<%= stylesheet_link_tag "lightbox"  %>
 <h1><%=@event.title%></h1>
 <% if session[:event_code] == @event.event_code || @check %>
   <div class="content">

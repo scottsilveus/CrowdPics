@@ -15,4 +15,5 @@
 //= require jquery-ui/datepicker
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require events
+//= require_self
