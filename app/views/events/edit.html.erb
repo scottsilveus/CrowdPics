@@ -6,13 +6,23 @@
 	<%= link_to "Delete", user_event_path, method: :delete, data: {confirm: "Are you sure?  People will miss these pictures."}  %>
 
 <div id="eventImages">
-  <% @event.event_photos.each do |p| %>
+  
+
+
+
+
+
+
+
+  <% @eventphotos.each do |p| %>
     <div>
-      <img src="<%= p.avatar %>">
+      <img src="<%= p.avatar.url(:medium) %>">
       <%= link_to "Delete", event_event_photo_path(@event, p.id), method: :delete, data: {confirm: "Are you sure?  People will this pictures."}  %>
     </div>
+
   <% end %>
 </div>
+  
 
 
 <% else %>

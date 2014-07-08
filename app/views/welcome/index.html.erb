@@ -6,8 +6,37 @@
 <%= link_to "All Events", events_path%>
 <%= link_to "My Dashboard", user_path(current_user) %>
 <% else %>
-	<%= link_to "Create Account", new_user_registration_path %><br>
-	<%= link_to "Sign In", new_user_session_path %>
+
+	<%= link_to "Create Account", new_user_registration_path, :id => "signup"%><br>
+
+<div id='signupdiv' style="display: none">
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "Sign up" %></div>
+<% end %></div>
+
+
+	<%= link_to "Sign In", new_user_session_path, :id => "signin"%>
+
+<div id='signindiv' style="display: none">
+<%= form_for(:user, :url => session_path(:user)) do |f| %>
+<div><%= f.label :email %><br />
+  <%= f.text_field :email %><br></div>
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %><br></div>
+   <div><%= f.submit "Sign in" %></div>
+<% end %></div>
+
 
   <%= form_tag events_check_code_path do %>
   <p>
@@ -19,3 +48,6 @@
   </p>
   <% end %>
 <% end %>
+
+
+

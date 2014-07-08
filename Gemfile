@@ -41,6 +41,11 @@ gem 'jquery-turbolinks'
 gem 'jquery-ui-rails'
 
 
+gem 'will_paginate', '~> 3.0'
+gem 'bootstrap-will_paginate'
+
+
+
 gem 'devise'
 gem 'aws-sdk'
 gem 'paperclip'
