@@ -1,23 +1,28 @@
+$dark_grey: #242424;
+$dark_violet: #641163;
 
 
 .intro{
-
-    background: url(crowdpiclanding4.jpg) no-repeat bottom center scroll;
+    margin-top: -10px;
+    background: url(crowdpiclanding5.jpg) no-repeat bottom center scroll;
     background-repeat: no-repeat;
-    background-color: #212AFE;
+    background-color: $dark_violet;
     background-size:100% 100%;
-    min-height: 400px;
+    min-height: 600px;
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    font-family: "century gothic",Arial,sans-serif;
+    text-align:right;
 }
 
 .about-section{
     padding: 75px;
     width: 100%;
     color: #ffffff;
-    background-color: #715AFE;
+    background-color: $dark_grey;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -29,7 +34,7 @@
     padding: 75px;
     width: 100%;
     color: #ffffff;
-    background-color: #BA25E9;
+    background-color: $dark_violet;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -41,7 +46,7 @@
 .learn_more-section{
     padding: 75px;
     color: #ffffff;
-    background-color: #BA5219;
+    background-color: $dark_grey;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -53,16 +58,180 @@
 .contact-section{
     padding: 75px;
     color: #ffffff;
-    background-color: #1A5919;
+    background-color: $dark_violet;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-
 }
 
 .landing_body{
+    background-color: $dark_grey;
+}
+.brand-heading{
+    margin-top: 40px;
+    color: white;
+    color: white;
+   font-size: 7em;
+   font-family: "century gothic",Arial,sans-serif;
 }
 
 
+.intro-text{
+    margin-top: -35px;
+    color: white;
+    font-size: 2.7em;
+    font-family: "century gothic",Arial,sans-serif;
+}
 
+
+.right_nav {
+    float: right;
+}
+
+
+#footer {
+    background-color: $dark_grey;
+    color: white;
+    padding: 10px;
+}
+
+.lp_btn {
+    border: 1px solid #EBEBEB;
+    color: #EBEBEB;
+    background-color: transparent;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 30px;
+    font-family: sans-serif;
+    text-decoration: none;
+    width: 80px;
+}
+
+.lp_link li {
+    margin-top: 30px;
+    text-align: center;
+    list-style: none;
+}
+
+.ul {
+    list-style: none;
+}
+
+.lp_btn:hover,
+.lp_btn:focus {
+    text-decoration: none;
+    border: 1px solid #EBEBEB;
+    outline: 0;
+    color: #000;
+    background-color: #EBEBEB;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 30px;
+    font-family: sans-serif;
+}
+
+.lp_btn2 {
+    border: 1px solid #EBEBEB;
+    color: #EBEBEB;
+    background-color: transparent;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 30px;
+    font-family: sans-serif;
+    text-decoration: none;
+    width: 80px;
+}
+
+.lp_link2 li {
+    display: inline;
+}
+.lp_link2 ul {
+    list-style: none;
+}
+
+.lp_btn2:hover,
+.lp_btn2:focus {
+    text-decoration: none;
+    border: 1px solid #EBEBEB;
+    outline: 0;
+    color: #000;
+    background-color: #EBEBEB;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 30px;
+    font-family: sans-serif;
+}
+
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    margin-top: 10px;
+    padding: 7px 16px;
+    border: 2px solid #fff;
+    border-radius: 35px;
+    font-size: 40px;
+    color: #fff;
+    background: 0 0;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+.btn-circle:hover,
+.btn-circle:focus {
+    outline: 0;
+    color: #fff;
+    background: rgba(255,255,255,.1);
+}
+
+.btn-circle i.animated {
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
+}
+
+.btn-circle:hover i.animated {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+}
+
+.btn-circle i.animated {
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
+}
+.btn-circle:hover i.animated {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+}
+
+.btn {
+    margin-top: 3em;
+}
+
+.team_photo{
+  max-width: 200px;
+  width: auto;
+  padding: 20px;
+}
+.container{
+    max-width: 900px;
+}
