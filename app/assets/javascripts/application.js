@@ -16,4 +16,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require events
+//= require_tree .
 //= require_self
