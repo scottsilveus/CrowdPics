@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <!--meta tags-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,9 +12,7 @@
     <!--    Looking at my code?       -->
     <link rel="shortcut icon" href="favicon.ico">
     <!-- Fonts -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -69,6 +66,7 @@
            <%= link_to "Create Event", new_user_event_path(current_user) %>
            <%= link_to "All Events", events_path%>
            <%= link_to "My Dashboard", user_path(current_user) %>
+           <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
          <% else %>
         <ul class='lp_link'>
         <br>
@@ -91,20 +89,23 @@
               <div><%= f.submit "Sign up" %></div>
             <% end %></div>
 
-          <li><%= link_to "Sign In", new_user_session_path, :class => "lp_btn", :id => "signin" %></li>
+          <li><%= link_to "Sign In", new_user_session_path, :class => "lp_btn", :id =>"signin" %></li>
 
           <div id='signindiv' style="display: none">
-              <%= form_for(:user, :url => session_path(:user)) do |f| %>
+            <%= form_for(:user, :url => session_path(:user)) do |f| %>
+
               <div><%= f.label :email %><br />
-                <%= f.text_field :email %><br></div>
-                <div><%= f.label :password %><br />
-                <%= f.password_field :password %><br></div>
-                 <div><%= f.submit "Sign in" %></div>
-              <% end %></div>
-                      
-                      </ul>
-        <% end %>
-        <%= form_tag events_check_code_path do %>
+              <%= f.email_field :email %></div>
+
+              <div><%= f.label :password %><br />
+              <%= f.password_field :password %></div>
+
+              <div><%= f.submit "Sign in" %></div>
+            <% end %></div>
+              
+          <% end %>
+
+        <%= form_tag events_check_code_path do %><br>
               <p>
                 <%= label_tag "Event Code"%>
                 <%= text_field_tag "event_code" %>

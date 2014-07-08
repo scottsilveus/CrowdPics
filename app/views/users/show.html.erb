@@ -15,7 +15,6 @@
 		<% end %>
 <% end %>
 </ol>
-<%= link_to "All Events", events_path%>
 <%= link_to "Create Event", new_user_event_path(current_user) %>
+<%= link_to "Delete Event", user_path, method: :delete, data: {confirm: "Click ok to fuck up your computer or cancel to keep it useable"} %>
 <%= link_to "LogOut", destroy_user_session_path, method: :delete %>
-<%= link_to "Delete", user_path, method: :delete, data: {confirm: "Click ok to fuck up your computer or cancel to keep it useable"} %>
