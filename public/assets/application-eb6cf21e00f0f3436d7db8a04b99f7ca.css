@@ -14,5 +14,5 @@
  * file per style scope.
  *
  *= require jquery-ui/datepicker
- *= require_tree .
+ *= require jquery-ui/datepicker
  */
