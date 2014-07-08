@@ -39,7 +39,7 @@ gem 'friendly_id'
 # gem 'debugger', group: [:development, :test]
 gem 'jquery-turbolinks'
 gem 'jquery-ui-rails'
-
+gem 'masonry-rails'
 
 gem 'devise'
 gem 'aws-sdk'
