@@ -1,3 +1,4 @@
+
 <h1><%=@event.title%></h1>
 <% if session[:event_code] == @event.event_code || @check %>
   <div class="content">
@@ -5,7 +6,7 @@
   </div>
   <div id="eventImages">
     <% @event_photos.each do |p| %>
-      <div><img src="<%= p.avatar.url(:thumb) %>"></div>
+      <div><a href="<%= p.avatar %>" data-lightbox="gallery"><img src="<%= p.avatar.url(:thumb) %>"></a></div>
     <% end %>
   </div>
   <h2>Add a new event photo <%= link_to 'New Event Photo', new_event_event_photo_path(@event), class: 'new-eventphoto' %></h2>
