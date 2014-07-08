@@ -33,6 +33,8 @@ class EventsController < ApplicationController
 
 	def edit
 		@event = Event.find_by_id(params[:id])
+		@eventphotos = @event.event_photos.page(params[:page]).per_page(2)
+
 		@creator = User.find_by_id(@event.user_id)
 		@current_user = current_user
 	end

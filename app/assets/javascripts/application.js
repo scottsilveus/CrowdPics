@@ -11,11 +11,41 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
 //= require jquery.turbolinks
-//= require jquery-ui/datepicker
 //= require jquery_ujs
-//= require turbolinks
+
+//= require bootstrap-sprockets
 //= require bootstrap/bootstrap
 
+//= 'require_self'
 //= require_tree .
+//= require turbolinks
+
+
+// var ready = function(){
+$(document).ready(function(event){
+  console.log('ready')
+  $("#signup").on("click", function(event) {
+    // alert("sign up clicked!")
+    event.preventDefault();
+    console.log('hi')
+    $("#signupdiv").toggle("slow", function() {
+      console.log('bye')
+    // Animation complete.
+    });
+  });
+
+   $("#signin").on("click", function(event) {
+     // alert("sign in clicked!")
+      event.preventDefault();
+      $("#signindiv").toggle("slow", function() {
+    // Animation complete.
+    });
+  });
+
+}); 
+
+// }
+
+// $(document).ready(ready);
+// $(document).on('page:load', ready);

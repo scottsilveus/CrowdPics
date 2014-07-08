@@ -13,4 +13,11 @@
   <h1>You do not have permission to view this event.</h1>
 <%  end %>
 
-
+<% if current_user %>
+    <%= link_to "My Dashboard", user_path(current_user) %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% else %>
+  <%= link_to 'Homepage', root_url %>
+<%end%>
+          
+  
