@@ -13,6 +13,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  # API ROUTING INFORMATION
+  namespace :api, path: '/',  constraint: { subdomain: 'api' } do
+    namespace :v1 do
+      resources :api, only: :create
+      get '/api/events/:event_code' => 'api#check'
+    end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

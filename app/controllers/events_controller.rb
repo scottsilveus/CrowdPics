@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		event_uniq_url = SecureRandom.urlsafe_base64(7)
+		event_uniq_url = SecureRandom.urlsafe_base64(5)
 		params[:event][:start_date] = Date.strptime(params[:event][:start_date], "%m/%d/%Y")
 		params[:event][:end_date] = Date.strptime(params[:event][:end_date], "%m/%d/%Y")
 		@event = Event.create(event_params)
