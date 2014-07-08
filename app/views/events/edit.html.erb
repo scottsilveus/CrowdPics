@@ -8,12 +8,6 @@
 <div id="eventImages">
   
 
-
-
-
-
-
-
   <% @eventphotos.each do |p| %>
     <div>
       <img src="<%= p.avatar.url(:medium) %>">
@@ -23,7 +17,6 @@
   <% end %>
 </div>
   
-
 
 <% else %>
 	<%= link_to "Go Home Dick Bag!", root_path %>
