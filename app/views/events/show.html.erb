@@ -1,25 +1,51 @@
-
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CrowdPics</title>
+  <%= stylesheet_link_tag 'events'%>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <%= javascript_include_tag 'masonry.js' %>
+  <%= javascript_include_tag 'imageloaded.js' %>
+</head>
+<body>
 <div class='container'>
 <h1><%=@event.title%></h1>
-<% if session[:event_code] == @event.event_code || @check %>
-  <div class="content">
-  	<p><%= @event.description %></p>
-  </div>
-  <div id="eventImages">
-    <% @event_photos.each do |p| %>
-      <div><img src="<%= p.avatar.url(:thumb) %>"></div>
-    <% end %>
-  </div>
-  <h2>Add a new event photo <%= link_to 'New Event Photo', new_event_event_photo_path(@event), class: 'new-eventphoto' %></h2>
-<% else %>
-  <h1>You do not have permission to view this event.</h1>
-<%  end %>
-
 <% if current_user %>
     <%= link_to "My Dashboard", user_path(current_user) %>
     <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 <% else %>
   <%= link_to 'Homepage', root_url %>
 <%end%>
+<% if session[:event_code] == @event.event_code || @check %>
+  <div class="content">
+  <h2>Add a new event photo <%= link_to 'New Event Photo', new_event_event_photo_path(@event), class: 'new-eventphoto' %></h2>
+    <p><%= @event.description %></p>
+  </div>
+  <div class="js-masonry" data-masonry-options='{ "itemSelector": ".item", "gutter": 20 }'>
+    <% @event_photos.each do |p| %>
+      <% size = rand(1..2) %>
+      <div class="item">
+      <% case size %>
+        <%when 1 %>
+          <img src="<%= p.avatar.url(:medium) %>" alt='medium'>
+        <%when 2 %>
+          <img src="<%= p.avatar.url(:large) %>" alt='large'>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <h1>You do not have permission to view this event.</h1>
+<%  end %>
+
 </div>
+<script>
+  // initialize Masonry
+var $container = $('.js-masonry').masonry();
+// layout Masonry again after all images have loaded
+$container.imagesLoaded( function() {
+  $container.masonry();
+});
+</script>
+</body>
+</html>
