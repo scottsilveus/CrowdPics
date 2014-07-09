@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :event_photos
   end
 
+  
+
   post 'events/check_code' => 'events#check_code'
   # You can have the root of your site routed with "root"
   root 'welcome#index'
