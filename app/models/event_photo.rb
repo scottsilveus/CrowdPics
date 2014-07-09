@@ -5,7 +5,9 @@ class EventPhoto < ActiveRecord::Base
     attachment_size: { less_than: 5.megabytes }
 
   has_attached_file :avatar, styles: {
-    medium: '200x200>',
-    large: '300x300>'
+    medium: '200x200^',
+    large: '300x300^',
+    small: '100x100^',
+    extra_small: '50x50^'
   }
 end
