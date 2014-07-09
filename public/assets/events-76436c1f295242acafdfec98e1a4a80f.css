@@ -1,0 +1,28 @@
+#ui-datepicker-div{
+ font-size:10px;
+}
+
+html, body.photo {
+  height: 100%;
+}
+
+body.photo {
+  margin-top: 40px;
+}
+
+.photocontainer {
+  min-height: 100%;
+}
+
+.photocontainer:after {
+  content: "";
+  display: block;
+
+
+}
+
+footer.photo, .photocontainer:after {
+  height: 20px;
+}
+
+.photoitem { margin-bottom: 15px; }
