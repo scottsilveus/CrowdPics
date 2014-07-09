@@ -2,7 +2,7 @@
  font-size:10px;
 }
 
-div.eventImages{
+/*div.eventImages{
     -moz-column-count: 3;
     -moz-column-gap: 100px;
     -webkit-column-count: 3;
@@ -12,10 +12,16 @@ div.eventImages{
     width: 480px; }
 
     .eventImages img{
-        display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
+        display: inline-block;
         margin-bottom: 50px;
         width: 100%; }
     .eventImages div img{
-        display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
+        display: inline-block;
         margin-bottom: 20px;
-        width: 100%; }
+        width: 100%; }*/
+.container {
+    margin: 0 auto;
+    width: 960px;
+}
+
+.item { margin-bottom: 15px; }

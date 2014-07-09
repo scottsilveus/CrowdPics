@@ -6,7 +6,7 @@
 	<%= link_to "Delete", user_event_path, method: :delete, data: {confirm: "Are you sure?  People will miss these pictures."}  %>
 
 <div id="eventImages">
-  
+
 
   <% @eventphotos.each do |p| %>
 
@@ -16,7 +16,7 @@
 
   <% end %>
 </div>
-  
+
 
 <% else %>
 	<%= link_to "Go Home Dick Bag!", root_path %>
