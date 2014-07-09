@@ -8,6 +8,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+   <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
     <title>CrowdPics</title>
     <!--    Looking at my code?       -->
     <link rel="shortcut icon" href="favicon.ico">
@@ -23,9 +31,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">
-                    CROWDPICS
-                </a>
+              
             </div>
      <!-- Fixed navbar -->
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -159,10 +165,7 @@
         <br>
         <% if current_user %>
 
-        <h3>You've been signed in</h3>
-          <%= link_to "Create Event", new_user_event_path(current_user) %>
-          <%= link_to "All Events", events_path%>
-          <%= link_to "My Dashboard", user_path(current_user) %>
+        
         <% else %>
         <ul class='lp_link2'>
           <li><%= link_to "Create Account", new_user_registration_path, :class => "lp_btn2" %></li>
@@ -185,7 +188,7 @@
 </div>
 <!-- FOOTER -->
     <section id='footer'>
-      &copy; 2014 CROWDPICS. All Rights Reserved.
+      &copy; 2014 CrowdPics. All Rights Reserved.
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   </body>
