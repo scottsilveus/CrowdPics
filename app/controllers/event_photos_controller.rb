@@ -1,6 +1,6 @@
 class EventPhotosController < ApplicationController
 
-
+  
   # GET /friends/new
   def new
     @event = Event.find_by_id(params[:event_id])
