@@ -22,6 +22,17 @@ class EventsController < ApplicationController
 		end
 	end
 
+	def update
+ 		params[:event][:start_date] = Date.strptime(params[:event][:start_date], "%m/%d/%Y")
+ 		params[:event][:end_date] = Date.strptime(params[:event][:end_date], "%m/%d/%Y")
+ 		@event = Event.find_by(id: params[:id])
+ 		if @event
+ 			@event.update(event_params)
+ 			redirect_to user_path(current_user)
+ 		end
+
+ 	end
+
 	def show
 			@event = Event.find_by_id(params[:id])
 			@event_photos = @event.event_photos

@@ -13,9 +13,9 @@
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 
-<%= form_for @event, url: user_events_path do |f| %>
+<%= form_for [current_user, @event] do |f| %>
 	<div>
-		
+
 		<%= f.text_field :title, autofocus: true, :placeholder => "Title" %>
 	</div>
 	<br>
