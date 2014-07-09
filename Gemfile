@@ -31,7 +31,7 @@ gem 'rails_12factor', group: :production
 gem 'friendly_id'
 # Use unicorn as the app server
 # gem 'unicorn'
-
+gem 'twilio-ruby'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'jquery-nested-rails'

@@ -1,6 +1,17 @@
 <% if current_user.id == @event.user_id %>
 	<h1>Edit Event</h1>
-  <div>Here is the event viewing code: <%= @event.event_code %></div>
+  <div>Here is the event viewing code: <%= @event.event_code %><br></div>
+
+<%#  Submit phone number Twilio    %>
+<br>
+
+<%= form_tag(send_texts_path(@event)) do %>
+<%= label_tag("Text friends and family the viewing code:")%><br>
+<%= text_field_tag(:number_to_text, "Enter Phone Number")%>
+<%= submit_tag "SUBMIT"%>
+<% end %><br>
+<%# General Event Info %>
+
   <% if @event.start_date > DateTime.now %>
 	  <%= render "shared/event_form" %>
   <% end %>

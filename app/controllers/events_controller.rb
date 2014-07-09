@@ -68,6 +68,28 @@ class EventsController < ApplicationController
     end
   end
 
+  def send_text_message
+  	event = Event.find_by_id(params[:format])
+  	code = event.event_code
+
+
+    number_to_send_to = params[:number_to_text].gsub(/[^\d]/, '')
+
+
+    twilio_sid = ENV['TWILIO_SID'] #CrowdPics
+    twilio_token = ENV['TWILIO_TOKEN'] #CrowdPics
+    twilio_phone_number = ENV['TWILIO_PHONE_NUMBER'] #CrowdPics
+
+    @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+
+    @twilio_client.account.sms.messages.create(
+      :from => "+1#{twilio_phone_number}",
+      :to => "+1#{number_to_send_to}",
+      :body => "You have been invited to a CrowdPics Event. Here is your event code: #{code} "
+    )
+    redirect_to edit_user_event_path(current_user, event)
+  end
+
 private
 
 	def event_params
