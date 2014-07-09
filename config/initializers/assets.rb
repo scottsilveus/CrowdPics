@@ -9,3 +9,5 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( masonry.js )
 Rails.application.config.assets.precompile += %w( imageloaded.js )
 Rails.application.config.assets.precompile += %w( events.css )
+Rails.application.config.assets.precompile += %w( lightbox.css )
+Rails.application.config.assets.precompile += %w( lightbox.min.js )
