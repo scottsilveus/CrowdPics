@@ -1,12 +1,12 @@
 $dark_grey: #242424;
-$dark_violet: #641163;
+$dark_blue: #314554;
 
 
 .intro{
     margin-top: -10px;
-    background: url(crowdpiclanding5.jpg) no-repeat bottom center scroll;
+    background: url(crowdpiclanding6.jpg) no-repeat bottom center scroll;
     background-repeat: no-repeat;
-    background-color: $dark_violet;
+    background-color: $dark_blue;
     background-size:100% 100%;
     min-height: 600px;
 
@@ -34,12 +34,11 @@ $dark_violet: #641163;
     padding: 75px;
     width: 100%;
     color: #ffffff;
-    background-color: $dark_violet;
+    background-color: $dark_blue;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-
 }
 
 
@@ -58,7 +57,7 @@ $dark_violet: #641163;
 .contact-section{
     padding: 75px;
     color: #ffffff;
-    background-color: $dark_violet;
+    background-color: $dark_blue;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -100,13 +99,14 @@ $dark_violet: #641163;
     border: 1px solid #EBEBEB;
     color: #EBEBEB;
     background-color: transparent;
-    padding: 5px;
     padding-left: 30px;
     padding-right: 30px;
-    border-radius: 30px;
+    border-radius: 10px;
     font-family: sans-serif;
     text-decoration: none;
     width: 80px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .lp_link li {
@@ -126,24 +126,27 @@ $dark_violet: #641163;
     outline: 0;
     color: #000;
     background-color: #EBEBEB;
-    padding: 5px;
     padding-left: 30px;
     padding-right: 30px;
-    border-radius: 30px;
+    border-radius: 10px;
     font-family: sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .lp_btn2 {
     border: 1px solid #EBEBEB;
     color: #EBEBEB;
     background-color: transparent;
-    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-left: 30px;
     padding-right: 30px;
-    border-radius: 30px;
+    border-radius: 10px;
     font-family: sans-serif;
     text-decoration: none;
     width: 80px;
+  
 }
 
 .lp_link2 li {
@@ -160,17 +163,134 @@ $dark_violet: #641163;
     outline: 0;
     color: #000;
     background-color: #EBEBEB;
-    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-left: 30px;
     padding-right: 30px;
-    border-radius: 30px;
+    border-radius: 10px;
+    font-family: sans-serif;
+
+}
+.lp_btn3 {
+    text-align: center;
+    border: 1px solid #EBEBEB;
+    color: #EBEBEB;
+    background-color: transparent;
+    border-radius: 10px;
+    font-family: sans-serif;
+    text-decoration: none;
+    width: 80px;
+    padding: 5px;
+}
+
+.lp_btn3:hover,
+.lp_btn3:focus {
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #EBEBEB;
+    outline: 0;
+    color: #000;
+    background-color: #EBEBEB;
+    padding: 5px;
+    border-radius: 10px;
+    font-family: sans-serif;
+}
+.lp_btn4_1 {
+    margin-top: 20px;
+    text-align: center;
+    border: 1px solid #EBEBEB;
+    color: #EBEBEB;
+    background-color: transparent;
+    border-radius: 10px;
+    font-family: sans-serif;
+    text-decoration: none;
+    width: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 34px;
+    padding-right: 34px;
+}
+
+.lp_btn4_1:hover,
+.lp_btn4_1:focus {
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #EBEBEB;
+    outline: 0;
+    color: #000;
+    background-color: #EBEBEB;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 34px;
+    padding-right: 34px;
+    border-radius: 10px;
+    font-family: sans-serif;
+}
+.lp_btn4_2 {
+    text-align: center;
+    border: 1px solid #EBEBEB;
+    color: #EBEBEB;
+    background-color: transparent;
+    border-radius: 10px;
+    font-family: sans-serif;
+    text-decoration: none;
+    width: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+.lp_btn4_2:hover,
+.lp_btn4_2:focus {
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #EBEBEB;
+    outline: 0;
+    color: #000;
+    background-color: #EBEBEB;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 45px;
+    padding-right: 45px;
+    border-radius: 10px;
+    font-family: sans-serif;
+}
+.lp_btn4_3 {
+    margin-top: 20px;
+    text-align: center;
+    border: 1px solid #EBEBEB;
+    color: #EBEBEB;
+    background-color: transparent;
+    border-radius: 10px;
+    font-family: sans-serif;
+    text-decoration: none;
+    width: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.lp_btn4_3:hover,
+.lp_btn4_3:focus {
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #EBEBEB;
+    outline: 0;
+    color: #000;
+    background-color: #EBEBEB;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
     font-family: sans-serif;
 }
 
 .btn-circle {
     width: 70px;
     height: 70px;
-    margin-top: 10px;
     padding: 7px 16px;
     border: 2px solid #fff;
     border-radius: 35px;
@@ -180,6 +300,7 @@ $dark_violet: #641163;
     -webkit-transition: background .3s ease-in-out;
     -moz-transition: background .3s ease-in-out;
     transition: background .3s ease-in-out;
+    margin-bottom: 30px;
 }
 .btn-circle:hover,
 .btn-circle:focus {
@@ -234,4 +355,31 @@ $dark_violet: #641163;
 }
 .container{
     max-width: 900px;
+}
+
+.lp_lm_left_text{
+    float: left;
+}
+
+.lp_lm_right_image{
+    float: right;
+}
+
+.mobile_image{
+    width: 100%;
+}
+
+.lp_top_left{ 
+}
+
+.lp_top_right{
+    margin-top: 5px;
+}
+
+.team_name {
+    font-size: 20px;
+}
+
+.p_font_size {
+    font-size: 18px;
 }
