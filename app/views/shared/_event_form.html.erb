@@ -1,19 +1,26 @@
+<body “data-no-turbolink”>
+	<script>
+	var ready;
+ready = function() {
 
-<script>
-
-  $(function() {
+  jQuery(function() {
     $( ".datepicker" ).datepicker();
   });
 
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
+
   </script>
-
-
 
 
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 
 <%= form_for [current_user, @event] do |f| %>
+
 	<div>
 
 		<%= f.text_field :title, autofocus: true, :placeholder => "Title" %>
@@ -35,3 +42,4 @@
 		<%= f.submit  %>
 	</div>
 <% end %>
+</body>
