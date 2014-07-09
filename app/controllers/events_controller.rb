@@ -23,8 +23,8 @@ class EventsController < ApplicationController
 	end
 
 	def update
- 		params[:event][:start_date] = Date.strptime(params[:event][:start_date], "%m/%d/%Y")
- 		params[:event][:end_date] = Date.strptime(params[:event][:end_date], "%m/%d/%Y")
+ 		params[:event][:start_date] = Date.parse(params[:event][:start_date])
+ 		params[:event][:end_date] = Date.parse(params[:event][:end_date])
  		@event = Event.find_by(id: params[:id])
  		if @event
  			@event.update(event_params)
