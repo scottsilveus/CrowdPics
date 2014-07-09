@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
 	before_action :authenticate_user!, except: [:show, :check_code]
+	layout false, only: [:show]
 
 	def index
 		@events = Event.all.order(:start_date)
@@ -33,7 +34,7 @@ class EventsController < ApplicationController
 
 	def edit
 		@event = Event.find_by_id(params[:id])
-		@eventphotos = @event.event_photos.page(params[:page]).per_page(2)
+		@eventphotos = @event.event_photos
 
 		@creator = User.find_by_id(@event.user_id)
 		@current_user = current_user
