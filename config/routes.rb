@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     resources :event_photos
   end
 
-  
+  # Twilio-specific route
+  post '/send_texts' => 'events#send_text_message', as: :send_texts
+
 
   post 'events/check_code' => 'events#check_code'
   # You can have the root of your site routed with "root"
