@@ -34,7 +34,7 @@ gem 'friendly_id'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'jquery-nested-rails'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'jquery-turbolinks'
