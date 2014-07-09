@@ -1,3 +1,21 @@
 #ui-datepicker-div{
  font-size:10px;
 }
+
+div.eventImages{
+    -moz-column-count: 3;
+    -moz-column-gap: 100px;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 100px;
+    column-count: 3;
+    column-gap: 100px;
+    width: 480px; }
+
+    .eventImages img{
+        display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
+        margin-bottom: 50px;
+        width: 100%; }
+    .eventImages div img{
+        display: inline-block; /* Display inline-block, and absolutely NO FLOATS! */
+        margin-bottom: 20px;
+        width: 100%; }
