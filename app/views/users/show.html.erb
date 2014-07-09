@@ -1,21 +1,66 @@
-<h1>Show page</h1>
-<h3>Upcoming Events</h3>
-<ol>
-<% current_user.events.order(:start_date).each do |event| %>
-	<% if event.start_date > DateTime.now %>
-		<li><%= link_to "#{event.title}", event_path(event.id) %> Date: <%= event.start_date.strftime("%m/%d/%y") %><%= link_to "Edit Event", edit_user_event_path(current_user.id,event.id) %></li><div>Here is the event viewing code: <%= event.event_code %></div>
-		<% end %>
-<% end %>
-</ol>
-<h3>Previous Events</h3>
-<ol>
-<% current_user.events.order(:start_date).each do |event| %>
-	<% if event.start_date < DateTime.now %>
-		<li><%= link_to "#{event.title}", event_path(event.id) %> Date: <%= event.start_date.strftime("%m/%d/%y") %><%= link_to "Edit Event", edit_user_event_path(current_user.id,event.id) %></li><div>Here is the event viewing code: <%= event.event_code %></div>
-		<% end %>
-<% end %>
-</ol>
-<%= link_to "All Events", events_path%>
-<%= link_to "Create Event", new_user_event_path(current_user) %>
-<%= link_to "LogOut", destroy_user_session_path, method: :delete %>
-<%= link_to "Delete", user_path, method: :delete, data: {confirm: "Click ok to fuck up your computer or cancel to keep it useable"} %>
+<body class='landing_body' class='grayscale' id="page-top" data-spy="scroll" data-target=".navbar-custom">
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">
+                    CROWDPICS
+                </a>
+            </div>
+     <!-- Fixed navbar -->
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">CrowdPics</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav right_nav">
+            <li class="hidden"><a href="#page-top"></a> </li>
+            <li class="page-scroll" class="active"><a href="#about">About</a></li>
+            <li class="page-scroll"><li><a href="#team">Team</a></li>
+            <li class="page-scroll"><li><a href="#learn_more">Learn More</a></li>
+            <li class="page-scroll"><li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+
+
+
+
+
+
+
+
+
+
+
+<div class ='container'>
+	<h1>Show page</h1>
+	<h3>Upcoming Events</h3>
+	<ol>
+	<% current_user.events.order(:start_date).each do |event| %>
+		<% if event.start_date > DateTime.now %>
+			<li><%= link_to "#{event.title}", event_path(event.id) %> Date: <%= event.start_date.strftime("%m/%d/%y") %><%= link_to "Edit Event", edit_user_event_path(current_user.id,event.id) %></li><div>Here is the event viewing code: <%= event.event_code %></div>
+			<% end %>
+	<% end %>
+	</ol>
+	<h3>Previous Events</h3>
+	<ol>
+	<% current_user.events.order(:start_date).each do |event| %>
+		<% if event.start_date < DateTime.now %>
+			<li><%= link_to "#{event.title}", event_path(event.id) %> Date: <%= event.start_date.strftime("%m/%d/%y") %><%= link_to "Edit Event", edit_user_event_path(current_user.id,event.id) %></li><div>Here is the event viewing code: <%= event.event_code %></div>
+			<% end %>
+	<% end %>
+	</ol>
+	<%= link_to "All Events", events_path%>
+	<%= link_to "Create Event", new_user_event_path(current_user) %>
+	<%= link_to "LogOut", destroy_user_session_path, method: :delete %>
+	<%= link_to "Delete", user_path, method: :delete, data: {confirm: "Click ok to fuck up your computer or cancel to keep it useable"} %>
+</div>
