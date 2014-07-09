@@ -2,7 +2,7 @@
  font-size:10px;
 }
 
-html, body {
+html, body.photo {
   height: 100%;
 }
 
@@ -10,16 +10,18 @@ body.photo {
   margin-top: 40px;
 }
 
-.container {
+.photocontainer {
   min-height: 100%;
 }
 
-.container:after {
+.photocontainer:after {
   content: "";
   display: block;
+
+
 }
 
-footer, .container:after {
+footer.photo, .photocontainer:after {
   height: 20px;
 }
 

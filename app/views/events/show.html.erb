@@ -3,10 +3,12 @@
 <head>
   <title>CrowdPics</title>
   <%= stylesheet_link_tag 'events'%>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <%= javascript_include_tag 'masonry.js' %>
   <%= javascript_include_tag 'imageloaded.js' %>
+  <%= javascript_include_tag 'masonry.js' %>
+  <%= javascript_include_tag 'lightbox.min.js' %>
 </head>
 <body class="photo">
   <nav class="navbar navbar-inverse navbar-custom navbar-fixed-top" role="navigation">
@@ -15,7 +17,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-              
+
             </div>
      <!-- Fixed navbar -->
       <div class="navbar navbar-fixed-top" role="navigation">
@@ -27,7 +29,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-  
+
           <%= link_to 'CrowdPics', root_url, :class => "navbar-brand" %>
         </div>
         <div class="collapse navbar-collapse">
@@ -44,7 +46,7 @@
       </div>
     </div>
  </nav>
-  <div class='container'>
+  <div class='photocontainer container'>
   <h1><%=@event.title%></h1>
   <% if session[:event_code] == @event.event_code || @check %>
     <div class="content">
@@ -53,13 +55,25 @@
     </div>
     <div class="js-masonry" data-masonry-options='{ "itemSelector": ".photoitem", "gutter": 20 }'>
       <% @event_photos.each do |p| %>
-        <% size = rand(1..2) %>
+        <% size = rand(1..4) %>
         <div class="photoitem">
         <% case size %>
           <%when 1 %>
+          <a href="<%= p.avatar %>" data-lightbox="gallery" data-title="<%= p.name %>">
             <img src="<%= p.avatar.url(:medium) %>" alt='medium'>
+          </a>
           <%when 2 %>
+          <a href="<%= p.avatar %>" data-lightbox="gallery" data-title="<%= p.name %>">
             <img src="<%= p.avatar.url(:large) %>" alt='large'>
+          </a>
+          <%when 3 %>
+          <a href="<%= p.avatar %>" data-lightbox="gallery" data-title="<%= p.name %>">
+            <img src="<%= p.avatar.url(:small) %>" alt='small'>
+          </a>
+           <%when 4 %>
+          <a href="<%= p.avatar %>" data-lightbox="gallery" data-title="<%= p.name %>">
+            <img src="<%= p.avatar.url(:extra_small) %>" alt='extra_small'>
+          </a>
           <% end %>
         </div>
       <% end %>
@@ -69,18 +83,18 @@
   <%  end %>
 
   </div>
-  <footer class='footer_general'>
+  <footer class='footer_general photo'>
     <section id='footer'>
       &copy; 2014 CrowdPics. All Rights Reserved.
     </section>
   </footer>
-    <script>
-      // initialize Masonry
-    var $container = $('.js-masonry').masonry();
-    // layout Masonry again after all images have loaded
-    $container.imagesLoaded( function() {
-      $container.masonry();
-    });
-    </script>
+  <script>
+    // initialize Masonry
+  var $container = $('.js-masonry').masonry();
+  // layout Masonry again after all images have loaded
+  $container.imagesLoaded( function() {
+    $container.masonry();
+  });
+  </script>
   </body>
 </html>
