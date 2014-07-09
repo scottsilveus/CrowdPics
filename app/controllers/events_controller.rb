@@ -22,6 +22,17 @@ class EventsController < ApplicationController
 		end
 	end
 
+	def update
+ 		params[:event][:start_date] = Date.parse(params[:event][:start_date])
+ 		params[:event][:end_date] = Date.parse(params[:event][:end_date])
+ 		@event = Event.find_by(id: params[:id])
+ 		if @event
+ 			@event.update(event_params)
+ 			redirect_to user_path(current_user)
+ 		end
+
+ 	end
+
 	def show
 			@event = Event.find_by_id(params[:id])
 			@event_photos = @event.event_photos
