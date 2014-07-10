@@ -3,24 +3,63 @@
 </section>
 
 <div class ='container'>
-<h1>Show page</h1>
-<h3>Upcoming Events</h3>
-<ol>
-<% current_user.events.order(:start_date).each do |event| %>
-	<% if event.start_date > DateTime.now %>
-		<li><%= link_to "#{event.title}", event_path(event.id) %> Date: <%= event.start_date.strftime("%m/%d/%y") %><%= link_to "Edit Event", edit_user_event_path(current_user.id,event.id) %></li><div>Here is the event viewing code: <%= event.event_code %></div>
-		<% end %>
-<% end %>
-</ol>
-<h3>Previous Events</h3>
-<ol>
-<% current_user.events.order(:start_date).each do |event| %>
-	<% if event.start_date < DateTime.now %>
-		<li><%= link_to "#{event.title}", event_path(event.id) %> Date: <%= event.start_date.strftime("%m/%d/%y") %><%= link_to "Edit Event", edit_user_event_path(current_user.id,event.id) %></li><div>Here is the event viewing code: <%= event.event_code %></div>
-		<% end %>
-<% end %>
-</ol>
-<%= link_to "Create Event", new_user_event_path(current_user) %>
-<%= link_to "Delete Event", user_path, method: :delete, data: {confirm: "Click ok to fuck up your computer or cancel to keep it useable"} %>
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+  <h1>Show page</h1>
+  <h3>Upcoming Events</h3>
+  <table class="upcoming_event_table">
+    <tr>
+      <th class='upcoming_event_th'>Event Name</th>
+      <th class='upcoming_event_th'>Date</th>
+      <th class='upcoming_event_th'>Event Code</th>
+      <th class='upcoming_event_th upcoming_event_th_special'></th>
+    </tr>
+
+  <tr>
+  <% current_user.events.order(:start_date).each do |event| %>
+  	<% if event.start_date > DateTime.now %>
+  		  <td class='upcoming_event_td'><%= link_to "#{event.title}", event_path(event.id) %> </td>
+        <td class='upcoming_event_td'> <%= event.start_date.strftime("%m/%d/%y") %>
+        <td class='upcoming_event_td'><%= event.event_code %></td>
+        <td class='upcoming_event_td'><%= link_to "Edit Event", edit_user_event_path(current_user.id,event.id) %></td>
+      </tr>
+  		<% end %>
+  <% end %>
+
+  </table>
+    <br>
+    <hr>
+
+
+  <h3>Previous Events</h3>
+
+<table class="previous_event_table">
+    <tr>
+      <th class='previous_event_th'>Event Name</th>
+      <th class='previous_event_th'>Date</th>
+      <th class='previous_event_th'>Event Code</th>
+      <th class='previous_event_th previous_event_th_special'></th>
+    </tr>
+  <tr>
+  <% current_user.events.order(:start_date).each do |event| %>
+    <% if event.start_date < DateTime.now %>
+        <td class='previous_event_td'><%= link_to "#{event.title}", event_path(event.id) %></td>
+        <td class='previous_event_td'> <%= event.start_date.strftime("%m/%d/%y") %>
+        <td class='previous_event_td'><%= event.event_code %></td>
+        <td class='previous_event_td'><%= link_to "Edit Event", edit_user_event_path(current_user.id,event.id) %></td>
+    </tr>
+      <% end %>
+  <% end %>
+
+  </table>
+
+
+
+
+
+
+  <br>
+  <br>
+  <br>
+    <div class='user_show_bot_menu'>
+      <%= link_to "Delete User", user_path, method: :delete, data: {confirm: "Click ok to fuck up your computer or cancel to keep it useable"}, :class => 'user_show_bot' %>
+    </div>
 </div>
