@@ -1,5 +1,15 @@
+#all_events_list {
+    font-size: 20px;
+    width: 100%;
+    border-bottom: 2px solid #F996AC;
+}
+.all_events_item{
+    font-size: 18px;
+    border-bottom: 2px solid #F996AC;
+    padding: 10px;
+    width: 100%;
 
-
+}
 
 .event_new_display_image {
 	background: url(placeholder_12.jpg) no-repeat bottom center scroll;
@@ -20,8 +30,8 @@
 	width:100%;
 	bottom:0;
 	left:0;
-	
-	
+
+
 }
 
 .event_index_display_image {
@@ -52,4 +62,79 @@
     font-family: "century gothic",Arial,sans-serif;
     text-align:right;
     border-bottom: 3px solid #5b8f88;
+}
+
+.user_show_bot_menu{
+    float: right;
+}
+
+.user_show_bot {
+    margin: 5px;
+    border: 1px solid #293a47;
+    color: #293a47;
+    background-color: transparent;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    font-family: sans-serif;
+    text-decoration: none;
+    width: 80px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.user_show_bot:hover,
+.user_show_bot:focus {
+    text-decoration: none;
+    border: 1px solid #EBEBEB;
+    outline: 0;
+    color: #000;
+    background-color: #EBEBEB;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    font-family: sans-serif;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.upcoming_event_th{
+    color: black;
+    border: 2px solid #293945;
+    padding: 5px;
+    font-size: 18px;
+    background-color: #BCE2DD;
+}
+.upcoming_event_td{
+    border: 2px solid #293945;
+    padding: 5px;
+    font-size: 16px;
+}
+.upcoming_event_table{
+    border: 2px solid;
+    padding: 5px;
+    width: 100%;
+
+}
+.upcoming_event_th_special{
+    background-color: #78C5BB;
+}
+
+.previous_event_th{
+    border: 2px solid #293945;
+    padding: 5px;
+    font-size: 18px;
+    background-color: #BCE2DD;
+}
+.previous_event_td{
+    border: 2px solid #293945;
+    padding: 5px;
+    font-size: 16px;
+}
+.previous_event_table{
+    border: 2px solid #293945;
+    padding: 5px;
+    width: 100%;
+}
+.previous_event_th_special{
+    background-color: #78C5BB;
 }
