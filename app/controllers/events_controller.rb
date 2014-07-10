@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
 	before_action :authenticate_user!, except: [:show, :check_code]
+	layout false, only: [:show, :edit]
 
 	def index
 		@events = Event.all.order(:start_date)
@@ -21,6 +22,17 @@ class EventsController < ApplicationController
 		end
 	end
 
+	def update
+ 		params[:event][:start_date] = Date.parse(params[:event][:start_date])
+ 		params[:event][:end_date] = Date.parse(params[:event][:end_date])
+ 		@event = Event.find_by(id: params[:id])
+ 		if @event
+ 			@event.update(event_params)
+ 			redirect_to user_path(current_user)
+ 		end
+
+ 	end
+
 	def show
 			@event = Event.find_by_id(params[:id])
 			@event_photos = @event.event_photos
@@ -33,7 +45,7 @@ class EventsController < ApplicationController
 
 	def edit
 		@event = Event.find_by_id(params[:id])
-		@eventphotos = @event.event_photos.page(params[:page]).per_page(2)
+		@event_photos = @event.event_photos
 
 		@creator = User.find_by_id(@event.user_id)
 		@current_user = current_user
@@ -54,6 +66,28 @@ class EventsController < ApplicationController
     	session[:event_code] = code
       redirect_to event_path(event)
     end
+  end
+
+  def send_text_message
+  	event = Event.find_by_id(params[:format])
+  	code = event.event_code
+
+
+    number_to_send_to = params[:number_to_text].gsub(/[^\d]/, '')
+
+
+    twilio_sid = ENV['TWILIO_SID'] #CrowdPics
+    twilio_token = ENV['TWILIO_TOKEN'] #CrowdPics
+    twilio_phone_number = ENV['TWILIO_PHONE_NUMBER'] #CrowdPics
+
+    @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+
+    @twilio_client.account.sms.messages.create(
+      :from => "+1#{twilio_phone_number}",
+      :to => "+1#{number_to_send_to}",
+      :body => "You have been invited to a CrowdPics Event. Here is your event code: #{code} "
+    )
+    redirect_to edit_user_event_path(current_user, event)
   end
 
 private

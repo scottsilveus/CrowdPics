@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 	end
 
 	def logout
+		session.clear
 	end
 
 	def destroy
