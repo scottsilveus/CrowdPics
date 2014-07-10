@@ -1,18 +1,20 @@
-
-
-
-
 <section class='event_index_display_image'>
 </section>
 <div class='container'>
-<h1>The Happenings</h1>
-<h6>Hang out with your Fly pals, but don't get sent to the can.</h6>
+  <h1>The Happenings</h1>
+  <h6>Hang out with your Fly pals, but don't get sent to the can.</h6>
+    <table id="all_events_list ">
+      <tr>
+        <th class='all_events_item'>Event</th>
+        <th class='all_events_item'>Date</th>
+      </tr>
+  	<% @events.each do |event| %>
+      <tr>
+  		<td class='all_events_item'><%= link_to "#{event.title}", event_path(event.id) %> </td>
+      <td class='all_events_item'>  <%= event.start_date.strftime("%m/%d/%y") %></td>
+    </tr>
+  	<% end %>
+    </table>
 
-<ol>
-	<% @events.each do |event| %>
-		<li>
-			<%= link_to "#{event.title}", event_path(event.id) %> Date: <%= event.start_date.strftime("%m/%d/%y") %>
-		</li>
-	<% end %>
-</ol>
 </div>
+  <br>

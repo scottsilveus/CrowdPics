@@ -1,30 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!--meta tags-->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+   <% if notice %>
+   <div class="notice"><%= notice %></div>
+ <% end %>
+ <% if alert %>
+   <div class="alert"><%= alert %></div>
+ <% end %>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
-   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-   <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-
-    <title>CrowdPics</title>
-    <!--    Looking at my code?       -->
-    <link rel="shortcut icon" href="favicon.ico">
-    <!-- Fonts -->
-
-  </head>
-<!-- NAVBAR
-================================================== -->
-  <body class='landing_body' class='grayscale' id="page-top" data-spy="scroll" data-target=".navbar-custom">
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class= "container">
             <div class="navbar-header page-scroll">
@@ -43,7 +23,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">CrowdPics</a>
+          <a class="navbar-brand" href="/">CrowdPics</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav right_nav">
@@ -60,194 +40,178 @@
       </div>
     </div>
  </nav>
-    <section class="intro">
-       <div class="intro-body">
-         <div class="container text-center">
-          <div class="brand-heading text-center">
-          CROWDPICS
-          </div>
-          <p class="intro-text">
-          Crowdsource . Curate . Create
-          </p>
+  <section class="intro">
+     <div class="intro-body">
+       <div class="container text-center">
+        <div class="brand-heading text-center">
+        CROWDPICS
+        </div>
+        <p class="intro-text">
+        Crowdsource . Curate . Create
+        </p>
 
-          <div class='lp_top'>
-          <div class ='lp_top_left col-md-6'>
-          <br>
-          <% if current_user %>
-           <br><br><br><%= link_to "Create Event", new_user_event_path(current_user), :class => "lp_btn4_1" %>
-           <br><br><br><%= link_to "All Events", events_path, :class => "lp_btn4_2" %>
-           <br><br><br><%= link_to "My Dashboard", user_path(current_user), :class => "lp_btn4_3" %>
-         <% else %>
-        <ul class='lp_link'>
+        <div class='lp_top'>
+        <div class ='lp_top_left col-md-6'>
         <br>
-        <br>
-          <li><%= link_to "Create Account", new_user_registration_path, :class => "lp_btn", :id => "signup" %></li>
+        <% if current_user %>
+         <br><br><br><%= link_to "Create Event", new_user_event_path(current_user), :class => "lp_btn4_1" %>
+         <br><br><br><%= link_to "All Events", events_path, :class => "lp_btn4_2" %>
+         <br><br><br><%= link_to "My Dashboard", user_path(current_user), :class => "lp_btn4_3" %>
+       <% else %>
+      <ul class='lp_link'>
+      <br>
+      <br>
+        <li><%= link_to "Create Account", new_user_registration_path, :class => "lp_btn", :id => "signup" %></li>
 
-          <div id='signupdiv' style="display: none">
-            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-              <%= devise_error_messages! %>
+        <div id='signupdiv' style="display: none">
+          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
 
-              <div><br />
-              <%= f.email_field :email, :placeholder => "Email" %></div>
+            <div><br />
+            <%= f.email_field :email, :placeholder => "Email" %></div>
 
-              <div><br />
-              <%= f.password_field :password, :placeholder => "Password" %></div>
+            <div><br />
+            <%= f.password_field :password, :placeholder => "Password" %></div>
 
-              <div><br />
-              <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %></div>
-              <br>
-              <div><%= f.submit "Sign up" %></div>
-            <% end %></div>
+            <div><br />
+            <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %></div>
+            <br>
+            <div><%= f.submit "Sign up" %></div>
+          <% end %></div>
 
-          <li><%= link_to "Sign In", new_user_session_path, :class => "lp_btn", :id =>"signin" %></li>
+        <li><%= link_to "Sign In", new_user_session_path, :class => "lp_btn", :id =>"signin" %></li>
 
-          <div id='signindiv' style="display: none">
-            <%= form_for(:user, :url => session_path(:user)) do |f| %>
-              <div><br />
-              <%= f.email_field :email, :placeholder => "Email" %>
-              </div>
-              <div><br />
-              <%= f.password_field :password, :placeholder => "Password" %>
-              </div>
-              <div><br>
-              <%= f.submit "Sign in" %>
-              </div>
-            <% end %></div>
+        <div id='signindiv' style="display: none">
+          <%= form_for(:user, :url => session_path(:user)) do |f| %>
+            <div><br />
+            <%= f.email_field :email, :placeholder => "Email" %>
+            </div>
+            <div><br />
+            <%= f.password_field :password, :placeholder => "Password" %>
+            </div>
+            <div><br>
+            <%= f.submit "Sign in" %>
+            </div>
+          <% end %></div>
 
-          <% end %>
-        </ul>
+        <% end %>
+      </ul>
+      </div>
+
+
+        <div class ='lp_top_right col-md-6'>
+        <br><br><br>
+      <%= form_tag events_check_code_path do %><br>
+            <p>
+
+              <%= text_field_tag "event_code", nil, :placeholder => "Event Code" %>
+            </p>
+
+              <%= submit_tag "Submit", class: 'lp_btn3' %>
+            </p>
+            <% end %>
+        </div>
+        </div>
         </div>
 
-
-          <div class ='lp_top_right col-md-6'>
-          <br><br><br>
-        <%= form_tag events_check_code_path do %><br>
-              <p>
-
-                <%= text_field_tag "event_code", nil, :placeholder => "Event Code" %>
-              </p>
-
-                <%= submit_tag "Submit", class: 'lp_btn3' %>
-              </p>
-              <% end %>
-          </div>
-          </div>
-          </div>
-
-          <div class="page-scroll text-center">
-            <a href="#about" class="btn btn-circle">
-              <i class="fa fa-angle-double-down animated"></i>
-            </a>
-          </div>
+        <div class="page-scroll text-center">
+          <a href="#about" class="btn btn-circle">
+            <i class="fa fa-angle-double-down animated"></i>
+          </a>
         </div>
       </div>
     </div>
-  </section>
-
-  <section id="about">
-    <div class="about-section">
-      <div class="container">
-
-         <h2>About<br></h2>
-          <p class='p_font_size'>
-
-          Quisque fringilla ultricies nisl, ac facilisis tortor ultricies vitae. Duis eget gravida neque. Maecenas egestas viverra diam at cursus. In semper, risus a aliquam scelerisque, eros lorem porta nunc, commodo dignissim nibh est sit amet nulla. Fusce luctus eget enim vitae sagittis. Curabitur vitae egestas arcu. Duis ac erat ornare, dapibus quam non, elementum est. Pellentesque arcu lacus, blandit ac orci et, interdum dignissim ligula. In consequat nec ipsum interdum tempus. Integer in odio eget orci congue imperdiet. Aenean posuere nisl elit, id aliquam mauris consequat non. Pellentesque facilisis tellus id dui ullamcorper dignissim. Donec tellus lectus, aliquam rhoncus nibh molestie,convallis convallis urna.</p>
-          <p class='p_font_size'>Integer vitae risus eu tellus malesuada tempus. Integer interdum adipiscing posuere. Nam non lacus tristique, tempor arcu et, tristique diam. Proin consequat massa vitae nunc viverra, nec malesuada arcu pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent a mi nulla. Nam velit odio, feugiat in est et, tristique euismod velit. Maecenas ac pulvinar lacus. Vestibulum pharetra leo sed enim tempor suscipit. Quisque venenatis tempus eros, in gravida odio. Suspendisse suscipit, risus vel auctor convallis, velit tellus posuere nunc, a aliquam dui metus nec enim. Quisque faucibus eros eu bibendum ullamcorper. Vivamus arcu justo, tincidunt et accumsan auctor, faucibus et nisi. Phasellus sed enim et libero lacinia iaculis porttitor sit amet augue.</p>
-
-    </div>
   </div>
+</section>
+
+<section id="about">
+  <div class="about-section">
+    <div class="container">
+
+       <h2>About<br></h2>
+        <p class='p_font_size'>
+        CrowdPics began as a way to allow wedding guests to participate in the creation of memories, without flooding social media/photo-sharing sites with pictures that the Happy Couple *ahem*...might not fully appreciate. (Sorry, Uncle Pete, your photo skillz aren't as incredible as you seem to think.) Essentially, CrowdPics was going to replace the disposable cameras placed on guests' tables. </p>
+        <p class='p_font_size'>However, the CrowdPics team soon realized that an application like this had power beyond maintaining the purity of images from a couple's Big Day. It could also be used to ensure that the rowdiness of parties remains amongst those actually present at said party. It would also eliminate the problem of the Forgetful Photographer--the guy or gal who never seems to remember to share precious, captured moments. You know, like puke pics and stuff.</p>
+        <p class='p_font_size'>Click <a href="#learn_more">here</a> to learn more about how CrowdPics was built, including the struggles and obstacles faced by the CP Team. We're excited to have you join us as you Crowdsource, Curate, and Create!</p>
+
+
+  </div>
+</div>
 </section>
 
 <section id="team">
-  <div class="team-section">
-    <div class="container">
-      <h2>The Team <br></h2>
-      <div class="col-md-6">
-      <img class='team_photo' src="<%= asset_path('ahmed.png') %>">
-      <span class='team_name'>Ahmed, The Kuwaitee<span>
-      <br>
-      <img class='team_photo' src="<%= asset_path('kennan.png') %>">
-      <span class='team_name'>Keenan, The Octopus<span>
-      </div>
-
-      <div class="col-md-6">
-      <img class='team_photo' src="<%= asset_path('scott.png') %>">
-      <span class='team_name'>Scott, The Machine<span>
-      <br>
-      <img class='team_photo' src="<%= asset_path('steve.png') %>">
-      <span class='team_name'>Steve, The Mustard<span>
-      </div>
-        <p class='p_font_size'>Integer vitae risus eu tellus malesuada tempus. Integer interdum adipiscing posuere. Nam non lacus tristique, tempor arcu et, tristique diam. Proin consequat massa vitae nunc viverra, nec malesuada arcu pharetra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent a mi nulla. Nam velit odio, feugiat in est et, tristique euismod velit. Maecenas ac pulvinar lacus. Vestibulum pharetra leo sed enim tempor suscipit. Quisque venenatis tempus eros, in gravida odio. Suspendisse suscipit, risus vel auctor convallis, velit tellus posuere nunc, a aliquam dui metus nec enim. Quisque faucibus eros eu bibendum ullamcorper. Vivamus arcu justo, tincidunt et accumsan auctor, faucibus et nisi. Phasellus sed enim et libero lacinia iaculis porttitor sit amet augue.</p>
-
+<div class="team-section">
+  <div class="container">
+    <h2>The Team <br></h2>
+    <div class="col-md-6">
+    <img class='team_photo' src="<%= asset_path('ahmed.png') %>">
+    <span class='team_name'>Ahmed, The Kuwaitee<span>
+    <br>
+    <img class='team_photo' src="<%= asset_path('kennan.png') %>">
+    <span class='team_name'>Keenan, The Octopus<span>
     </div>
+
+    <div class="col-md-6">
+    <img class='team_photo' src="<%= asset_path('scott.png') %>">
+    <span class='team_name'>Scott, The Machine<span>
+    <br>
+    <img class='team_photo' src="<%= asset_path('steve.png') %>">
+    <span class='team_name'>Steve, The Mustard<span>
+    </div>
+      <p class='p_font_size'>There they are: the CrowdPics Kids...</p>
+      <p class='p_font_size'>For their final project at <a href="http://devbootcamp.com/">Dev Bootcamp</a>, they were given 7 days to design any application of their choosing, with the assumption that they would choose a challenging, interesting idea. Going along with DBC's philosophy of learning new skills quickly, they opted to tackle some tough technologies, most of which were brand new to them! Click <a href="#learn_more">here</a> to read more about how the process played out.</p>
+
   </div>
+</div>
 </section>
 
 <section id="learn_more">
-  <div class="learn_more-section">
-    <div class="container">
+<div class="learn_more-section">
+  <div class="container">
 
-      <h2>Learn More</h2>
-        <div class='lp_lm_right_text col-md-6'>
-        <p class='p_font_size'>CrowdPics is a crowdsourcing image app that allows multiple users to contribute by simply entering an event code and snapping away.  This app allows the host to obtain pictures from guest displaying their visual perspective of an event.  CrowdPics uses the next generation technology.  It is expected that CrowdPics will release a bluetooth sync to their Google Glasses in 2016.</p>
+    <h2>Learn More</h2>
+      <div class='lp_lm_right_text col-md-6'>
+      <p class='p_font_size'>CrowdPics is a crowdsourcing image app that allows multiple users to contribute by simply entering an event code and snapping away.  It allows the host to obtain pictures from guests, resulting in multiple and varied perspectives of an event. On the mobile side, CrowdPics uses Apple's new programming language, Swift--just a month old at the time of development. For the web, the team dove into Ruby/Rails, JavaScript/jQuery/AJAX, and a variety of other tools and libraries in order to create a fluid and enjoyable experience, as users pore over their photos.</p>
+      <p class='p_font_size'>Obstacles arose that might have thwarted lesser teams, but the CrowdPics crew has magical thwart-proof powers, so they got the job done. Rails' Asset Pipeline? Pffft...child's play! And nice try, Version Control, these fellas know Git! The boys relied on their ability to search the web for answers, tap into the Chicago developer community, and lean on each other in order to overcome would-be disasters. The result isn't perfect, but the journey proved enlightening, educational, and fun. Thank you for checking us out. Now, go take some Pics!
+      </p>
 
-        <br>
-        <% if current_user %>
+      <br>
+      <% if current_user %>
 
 
-        <% else %>
-        <ul class='lp_link2'>
-          <li><%= link_to "Create Account", new_user_registration_path, :class => "lp_btn2" %></li>
-          <li><%= link_to "Sign In", new_user_session_path, :class => "lp_btn2" %></li>
-        </ul>
-        <% end %>
+      <% else %>
+      <ul class='lp_link2'>
+        <li><%= link_to "Create Account", new_user_registration_path, :class => "lp_btn2" %></li>
+        <li><%= link_to "Sign In", new_user_session_path, :class => "lp_btn2" %></li>
+      </ul>
+      <% end %>
 
-        </div>
-        <div class='lp_lm_right_image col-md-6'>
-          <img class='mobile_image' src="<%= asset_path('mobile_image2.jpg') %>">
-        </div>
-
-    </div>
+      </div>
+      <div class='lp_lm_right_image col-md-6'>
+        <img class='mobile_image' src="<%= asset_path('mobile_image2.jpg') %>">
+      </div>
 
   </div>
- </section>
+
+</div>
+</section>
 <!--mmmmmm-->
- <section id="contact">
-   <div class="contact-section">
-    <div class="container">
-      <h2>Contact Us</h2>
-        <p class='p_font_size'>Email: crowdpicschicago@gmail.com</p>
+<section id="contact">
+ <div class="contact-section">
+  <div class="container">
+    <h2>Contact Us</h2>
+      <p class='p_font_size'>Email: crowdpicschicago@gmail.com</p>
 
 
-           <ul class="list-inline banner-social-buttons">
-                   <ul class="list-inline banner-social-buttons">
-                    <li><a href="https://twitter.com/crowdpicschi" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                       </li>
-                  <li><a href="https://www.facebook.com/crowdpics" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
-                    </li>
-
-                </ul>
-
-
-
-
-
-
-
-
-
-     </div>
-    </div>
+         <ul class="list-inline banner-social-buttons">
+                 <ul class="list-inline banner-social-buttons">
+                  <li><a href="https://twitter.com/crowdpicschi" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                  </li>
+                     </li>
+                <li><a href="https://www.facebook.com/crowdpics" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+                  </li>
+              </ul>
+   </div>
+  </div>
 </section>
 </div>
-</div>
-<!-- FOOTER -->
-    <section id='footer'>
-      &copy; 2014 CrowdPics. All Rights Reserved.
-    </section>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  </body>
-</html>
-

@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable
   has_many :events
   validates_uniqueness_of :email
+  validates_confirmation_of :password, :only => :create
 
 end

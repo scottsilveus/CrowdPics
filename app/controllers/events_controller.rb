@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 	before_action :authenticate_user!, except: [:show, :check_code]
-	layout false, only: [:show]
+	layout false, only: [:show, :edit]
 
 	def index
 		@events = Event.all.order(:start_date)
@@ -34,8 +34,9 @@ class EventsController < ApplicationController
  	end
 
 	def show
+
 			@event = Event.find_by_id(params[:id])
-			@event_photos = @event.event_photos
+			@eventphotos = @event.event_photos
 			if current_user
 				@check = true if current_user.id == @event.user_id
 			else
