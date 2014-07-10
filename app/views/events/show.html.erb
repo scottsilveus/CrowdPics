@@ -47,6 +47,8 @@
       </div>
     </div>
  </nav>
+
+
   <div class='photocontainer container'>
   <h1><%=@event.title%></h1>
   <% if session[:event_code] == @event.event_code || @check %>
@@ -60,19 +62,19 @@
         <div class="photoitem">
         <% case size %>
           <%when 1 %>
-          <a href="<%= p.avatar %>" data-lightbox="gallery" data-title="<%= p.name %>">
+          <a href="<%= p.avatar.url(:original) %>" data-lightbox="gallery" data-title="<%= p.name %>">
             <img src="<%= p.avatar.url(:medium) %>" alt='medium'>
           </a>
           <%when 2 %>
-          <a href="<%= p.avatar %>" data-lightbox="gallery" data-title="<%= p.name %>">
+          <a href="<%= p.avatar.url(:original) %>" data-lightbox="gallery" data-title="<%= p.name %>">
             <img src="<%= p.avatar.url(:large) %>" alt='large'>
           </a>
           <%when 3 %>
-          <a href="<%= p.avatar %>" data-lightbox="gallery" data-title="<%= p.name %>">
+          <a href="<%= p.avatar.url(:original) %>" data-lightbox="gallery" data-title="<%= p.name %>">
             <img src="<%= p.avatar.url(:small) %>" alt='small'>
           </a>
            <%when 4 %>
-          <a href="<%= p.avatar %>" data-lightbox="gallery" data-title="<%= p.name %>">
+          <a href="<%= p.avatar.url(:original) %>" data-lightbox="gallery" data-title="<%= p.name %>">
             <img src="<%= p.avatar.url(:extra_small) %>" alt='extra_small'>
           </a>
           <% end %>

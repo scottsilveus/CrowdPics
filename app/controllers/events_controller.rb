@@ -34,6 +34,7 @@ class EventsController < ApplicationController
  	end
 
 	def show
+
 			@event = Event.find_by_id(params[:id])
 			@event_photos = @event.event_photos
 			if current_user
