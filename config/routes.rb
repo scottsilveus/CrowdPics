@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, :controllers => { :sessions => "users/sessions" }
+  
   resources :users, only: [:show,:destroy] do
     resources :events, except: [:show, :index]
   end
