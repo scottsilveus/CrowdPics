@@ -36,7 +36,7 @@ class EventsController < ApplicationController
 	def show
 
 			@event = Event.find_by_id(params[:id])
-			@event_photos = @event.event_photos
+			@eventphotos = @event.event_photos
 			if current_user
 				@check = true if current_user.id == @event.user_id
 			else
@@ -46,7 +46,7 @@ class EventsController < ApplicationController
 
 	def edit
 		@event = Event.find_by_id(params[:id])
-		@event_photos = @event.event_photos
+		@eventphotos = @event.event_photos
 
 		@creator = User.find_by_id(@event.user_id)
 		@current_user = current_user
