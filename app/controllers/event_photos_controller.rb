@@ -46,13 +46,11 @@ class EventPhotosController < ApplicationController
   # DELETE /friends/1
   # DELETE /friends/1.json
   def destroy
-    @event = Event.find_by_id(params[:event_id])
-    @eventphoto = EventPhoto.find_by_id(params[:id])
+    @event = Event.find_by(id: params[:event_id])
+    logger.info params
+    @eventphoto = EventPhoto.find_by(id: params[:id])
     @eventphoto.destroy
-    respond_to do |format|
-      format.html { redirect_to edit_user_event_path(current_user, @event) }
-      format.json { head :no_content }
-    end
+      redirect_to edit_user_event_path(current_user, @event)
   end
 
   private

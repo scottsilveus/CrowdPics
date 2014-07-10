@@ -1,22 +1,21 @@
-<<<<<<< HEAD
-
-
 <%# General Event Info %>
-=======
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>CrowdPics</title>
   <%= stylesheet_link_tag 'events'%>
->>>>>>> master
+
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= javascript_include_tag 'imageloaded.js' %>
   <%= javascript_include_tag 'masonry.js' %>
-  <%= javascript_include_tag 'lightbox.min.js' %>
+
+  <%= csrf_meta_tags %>
 </head>
-<body class="photo">
+<body class="photo" "data-no-turbolink">
   <nav class="navbar navbar-inverse navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
@@ -75,10 +74,12 @@
   <%= link_to "Delete", user_event_path, method: :delete, data: {confirm: "Are you sure?  People will miss these pictures."}  %>
 
     <div class="js-masonry" data-masonry-options='{ "itemSelector": ".photoitem", "gutter": 20 }'>
-      <% @event_photos.each do |p| %>
+      <% @eventphotos.each do |p| %>
         <div class="photoitem">
-          <img src="<%= p.avatar.url(:medium) %>"><br>
-          <%= link_to "Delete", event_event_photo_path(@event, p.id), method: :delete, data: {confirm: "Are you sure?  People will this pictures."}  %>
+          <img src="<%= p.avatar.url(:medium) %>"><br><br>
+       
+            <%= link_to "Delete", event_event_photo_path(@event, p.id), method: :delete, data: {confirm: "Are you sure?  People will miss this pictures."} %>
+        
         </div>
       <% end %>
     </div>
@@ -105,4 +106,4 @@
 
 
 
-</div>
+

@@ -8,6 +8,6 @@ class EventPhoto < ActiveRecord::Base
     medium: '200x200^',
     large: '300x300^',
     small: '100x100^',
-    extra_small: '50x50^'
+    original: '800x800>'
   }
 end
