@@ -63,22 +63,22 @@
 <%= form_tag(send_texts_path(@event)) do %>
 <%= label_tag("Text friends and family the viewing code:")%><br>
 <%= text_field_tag(:number_to_text,nil, placeholder: "Enter Phone Number")%>
-<%= submit_tag "SUBMIT"%>
+<%= submit_tag "Submit", :class => "user_edit_bot text-center"%>
 <% end %><br>
 <%# General Event Info %>
 
   <% if @event.start_date > DateTime.now %>
     <%= render "shared/event_form" %>
   <% end %>
-  <%= link_to "Back", user_path(current_user) %>
-  <%= link_to "Delete", user_event_path, method: :delete, data: {confirm: "Are you sure?  People will miss these pictures."}  %>
+  <br>
+  <%= link_to "Delete Event", user_event_path, method: :delete, data: {confirm: "Are you sure?  People will miss these pictures."}, :class => "user_edit_bot_delete"  %>
 
     <div class="js-masonry" data-masonry-options='{ "itemSelector": ".photoitem", "gutter": 20 }'>
       <% @eventphotos.each do |p| %>
         <div class="photoitem">
           <img src="<%= p.avatar.url(:medium) %>"><br><br>
        
-            <%= link_to "Delete", event_event_photo_path(@event, p.id), method: :delete, data: {confirm: "Are you sure?  People will miss this pictures."} %>
+            <%= link_to "Delete", event_event_photo_path(@event, p.id), method: :delete, data: {confirm: "Are you sure?  People will miss this pictures.", :class => 'user_show_bot'} %>
         
         </div>
       <% end %>
