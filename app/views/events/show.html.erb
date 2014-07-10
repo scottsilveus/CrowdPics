@@ -54,6 +54,7 @@
       <p><%= @event.description %></p>
     </div>
     <div class="js-masonry" data-masonry-options='{ "itemSelector": ".photoitem", "gutter": 20 }'>
+
       <% @event_photos.each do |p| %>
         <% size = rand(1..4) %>
         <div class="photoitem">
