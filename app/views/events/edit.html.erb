@@ -1,8 +1,14 @@
+<<<<<<< HEAD
+
+
+<%# General Event Info %>
+=======
 <!DOCTYPE html>
 <html>
 <head>
   <title>CrowdPics</title>
   <%= stylesheet_link_tag 'events'%>
+>>>>>>> master
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -48,18 +54,18 @@
     </div>
  </nav>
   <div class='photocontainer container'>
-      <% if current_user.id == @event.user_id %>
-        <h1>Edit Event</h1>
-        <div>Here is the event viewing code: <%= @event.event_code %><br></div>
+<% if current_user.id == @event.user_id %>
+  <h1>Edit Event</h1>
+  <div>Here is the event viewing code: <%= @event.event_code %><br></div>
 
-      <%#  Submit phone number Twilio    %>
-      <br>
+<%#  Submit phone number Twilio    %>
+<br>
 
-      <%= form_tag(send_texts_path(@event)) do %>
-        <%= label_tag("Text friends and family the viewing code:")%><br>
-        <%= text_field_tag(:number_to_text, "Enter Phone Number")%>
-        <%= submit_tag "SUBMIT"%>
-      <% end %><br>
+<%= form_tag(send_texts_path(@event)) do %>
+<%= label_tag("Text friends and family the viewing code:")%><br>
+<%= text_field_tag(:number_to_text,nil, placeholder: "Enter Phone Number")%>
+<%= submit_tag "SUBMIT"%>
+<% end %><br>
 <%# General Event Info %>
 
   <% if @event.start_date > DateTime.now %>
@@ -99,4 +105,4 @@
 
 
 
-
+</div>
