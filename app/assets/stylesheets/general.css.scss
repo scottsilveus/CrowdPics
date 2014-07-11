@@ -123,6 +123,7 @@
 }
 
 .user_edit_bot_delete {
+    margin: 10px;
     border: 1px solid red;
     color: #293a47;
     background-color: transparent;
@@ -208,4 +209,9 @@
 }
 .previous_event_th_special{
     background-color: #78C5BB;
+}
+
+.edit_container{
+    margin: 10px;
+    padding: 5px;
 }

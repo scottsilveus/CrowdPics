@@ -72,7 +72,7 @@
   <% end %>
   <br>
   <%= link_to "Delete Event", user_event_path, method: :delete, data: {confirm: "Are you sure?  People will miss these pictures."}, :class => "user_edit_bot_delete"  %>
-
+    <div class='edit_container'>
     <div class="js-masonry" data-masonry-options='{ "itemSelector": ".photoitem", "gutter": 20 }'>
       <% @eventphotos.each do |p| %>
         <div class="photoitem">
@@ -86,7 +86,8 @@
   <% else %>
     <h1>You do not have permission to view this event.</h1>
   <%  end %>
-
+  <br>
+  </div>
   </div>
   <footer class='footer_general photo'>
     <section id='footer'>
